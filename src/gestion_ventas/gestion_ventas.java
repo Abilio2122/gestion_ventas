@@ -1,19 +1,9 @@
-/**
- * 
- */
 package gestion_ventas;
 
-/**
- * 
- */
 public class gestion_ventas {
 
-	/**
-	 * @param args
-	 */
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-
+		int i = 0; //para i = 0 hasta n - 1 hacer
 	}
 
 }
