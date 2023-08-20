@@ -6,7 +6,8 @@ public class gestion_ventas {
 		int i = 0; //para i = 0 hasta n - 1 hacer
 		
 		
-		carambolas y mecashis
+                System.out.println("Za Warudo ");
+                
 	}
 
 }
