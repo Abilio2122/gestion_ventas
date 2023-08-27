@@ -4,6 +4,7 @@ public class Cliente {
 	
 	private String nombre;
 	private String rut;
+	private String pasword;
 	private int edad;
 	
 	public Cliente(String rut) {
@@ -16,9 +17,13 @@ public class Cliente {
 	public String getRut() {
 		return rut;
 	}
+	
 	public int getEdad() {
 		return edad;
 	}
 	
+	public String getPasword() {
+		return pasword;
+	}
 	
 }

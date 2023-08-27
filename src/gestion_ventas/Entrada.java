@@ -38,4 +38,5 @@ public class Entrada {
 	public void setPrecioEntrada(int precioEntrada) {
 		this.precioEntrada = precioEntrada;
 	}
+	
 }
