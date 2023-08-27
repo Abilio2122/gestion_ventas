@@ -3,8 +3,8 @@ package gestion_ventas;
 import java.util.ArrayList;
 
 public class Entrada {
+        private String idEntrada;
 	private String tipoEvento;
-	private String idEntrada;
 	private int precioEntrada;
 	private ArrayList<Cliente> arrayEntradas = new ArrayList<>();
 
@@ -26,14 +26,15 @@ public class Entrada {
 	public String getTipoEvento() {
 		return tipoEvento;
 	}
+        
+        public void setIdEntrada(String idEntrada) {
+		this.idEntrada = idEntrada;
+	}
 	
 	public void setTipoEvento(String tipoEvento) {
 		this.tipoEvento = tipoEvento;
 	}
 	
-	public void setIdEntrada(String idEntrada) {
-		this.idEntrada = idEntrada;
-	}
 	
 	public void setPrecioEntrada(int precioEntrada) {
 		this.precioEntrada = precioEntrada;
