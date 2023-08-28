@@ -13,23 +13,35 @@ public class gestion_ventas {
 		System.out.println("|      EventSales Pro        |");
 		System.out.println("------------------------------");
 		
-		System.out.println("Iniciar sesion");
-		System.out.println("");
-		System.out.println("Nombre");
-		String name = lector.readLine();
-		System.out.println("");
-		System.out.println("Edad");
-		int age = Integer.parseInt(lector.readLine());
-		System.out.println("");
-		System.out.println("Rut");
-		String i_d = lector.readLine();
-		System.out.println("");
-		System.out.println("Contraseña");
-		String contra = lector.readLine();
-		System.out.println("");
+		System.out.println("- Iniciar sesion (1)");
+		System.out.println("- Registrarse (2)");
+		System.out.println("- Salir (3)");
+		int opc = Integer.parseInt(lector.readLine());
 		
-		Cliente cliente = new Cliente(i_d);
-
+		switch(opc) {
+		case 1:
+			Cliente logeado = Cliente.iniciarSesion();
+			break;
+			
+		case 2:
+			Cliente nuevoCliente = Cliente.registrar();
+			break;
+			
+		case 3:
+			System.out.println("------------------------------");
+			System.out.println("|            Adios           |");
+			System.out.println("------------------------------");
+			System.out.println("");
+			System.out.println("Muchas Gracias Por Preferirnos");
+			System.out.println("------------------------------");
+			return;
+			
+		default:
+			System.out.println("Ingrese una opcion valida");
+			break;
+		
+		}
+		
 		while(true) {
 			System.out.println("------------------------------");
 			System.out.println("|    Seleccione una opcion   |");
@@ -40,18 +52,16 @@ public class gestion_ventas {
 			System.out.println("- Ver Recomendaciones (3)");
 			System.out.println("- Ver Regiones (4)");
 			System.out.println("- Cerrar Sesion (5)");
-			int opc = Integer.parseInt(lector.readLine());
+			int opc2 = Integer.parseInt(lector.readLine());
 			
-			switch(opc) {
+			
+			switch(opc2) {
 				case 1:
 					System.out.println("------------------------------");
 					System.out.println("|           Perfil           |");
 					System.out.println("------------------------------");
 						
-					System.out.println("<"+name+">");
-					System.out.println("<"+age+">");
-					System.out.println("<"+i_d+">");
-					//Historial de compra
+					logeado.mostrarPerfil();
 					break;
 					
 				case 2:
