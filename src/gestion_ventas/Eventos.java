@@ -1,16 +1,15 @@
 package gestion_ventas;
 
+import java.io.IOException;
+
 public class Eventos {
 	private String idEvento;
 	private String nombreEvento;
 	private String fechaEvento;
         private String regionEvento;
-	
-	public Eventos(String idEvento) {
-		this.idEvento=idEvento;
-	}
         
-        public Eventos(String nombreEvento, String fechaEvento, String regionEvento) {
+        public Eventos(String idEvento, String nombreEvento, String fechaEvento, String regionEvento) {
+                this.idEvento=idEvento;
 		this.nombreEvento=nombreEvento;
 		this.fechaEvento=fechaEvento;
                 this.regionEvento=regionEvento;
@@ -47,4 +46,5 @@ public class Eventos {
         public void setRegionEvento(String regionEvento) {
 		this.regionEvento = regionEvento;
 	}
+        
 }
