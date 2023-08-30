@@ -81,6 +81,7 @@ public class gestion_ventas {
                     System.out.println("|           Eventos          |");
                     System.out.println("------------------------------");
                     gestionEventos.listarEventos(); 
+                    System.out.println("");
                     
                     System.out.println("Ingrese la Id del evento al que desea asistir");
                     String i_d = lector.readLine();
@@ -99,7 +100,7 @@ public class gestion_ventas {
                     System.out.println("------------------------------");
                     System.out.println("|        Recomendaciones     |");
                     System.out.println("------------------------------");
-                    System.out.println("Segun tu edad, estos son los eventos qeu te recomendamos");
+                    System.out.println("Segun tu edad, estos son los eventos que te recomendamos");
                     //Deaspues hacemos lo de los rango de edad para las recomendaciones
                     break;
 					
@@ -146,6 +147,8 @@ public class gestion_ventas {
                             
                             Eventos nuevoEvento = new Eventos(idEvento,nombreEvento, fechaEvento, regionEvento);
                             gestionEventos.agregarEvento(nuevoEvento);
+                            
+                            System.out.println("");
                             
                             Entrada nuevaEntrada = new Entrada(in,typeEvent,precioEntrada);
                             gestionEntradas.agregarEntrada(nuevaEntrada);
