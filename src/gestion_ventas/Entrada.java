@@ -3,10 +3,9 @@ package gestion_ventas;
 import java.util.ArrayList;
 
 public class Entrada {
-        private String idEntrada;
+    private String idEntrada;
 	private String tipoEvento;
 	private int precioEntrada;
-	private ArrayList<Cliente> arrayEntradas = new ArrayList<>();
 
 	
 	public Entrada (String idEntrada, String tipoEvento, int precioEntrada) {

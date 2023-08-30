@@ -7,14 +7,14 @@ import java.io.*;
 
 public class Cliente {
 	
-        private String rut;
+       private String rut;
 	private String nombre;
 	private String password;
 	private int edad;
 	
         public Cliente(String rut,String nombre, String password, int edad) {
                 this.rut = rut;
-		this.nombre = nombre;
+                this.nombre = nombre;
                 this.password = password;
                 this.edad = edad;
 	}
@@ -57,15 +57,19 @@ public class Cliente {
         	
         	System.out.println("Registarse");
     		System.out.println("");
+    		
     		System.out.println("Nombre");
     		String nombre = lector.readLine();
     		System.out.println("");
+    		
     		System.out.println("Edad");
     		int edad = Integer.parseInt(lector.readLine());
     		System.out.println("");
+    		
     		System.out.println("Rut");
     		String rut = lector.readLine();
     		System.out.println("");
+    		
     		System.out.println("Contraseña");
     		String password = lector.readLine();
     		System.out.println("");
@@ -74,7 +78,7 @@ public class Cliente {
         	return cliente;
         }
         
-        public boolean iniciarSesion()throws IOException {
+        /*public boolean iniciarSesion()throws IOException {
             
         	BufferedReader lector = new BufferedReader(new InputStreamReader(System.in));
         	
@@ -93,13 +97,11 @@ public class Cliente {
                     return false;
                 }
                     
-        }           
+        }*/         
 
-        public void mostrarPerfil()throws IOException {
+        public String mostrarPerfil() {
             
-        	System.out.println("<"+nombre+">");
-		System.out.println("<"+edad+">");
-		System.out.println("<"+rut+">");
+        	return "Nombre: " + nombre + "\nRut: " + rut + "\nEdad: " + edad;
 		//Historial de compra
         }
         

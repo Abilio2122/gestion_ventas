@@ -16,12 +16,17 @@ public class gestionCliente {
     }
 
     // Método para buscar un cliente por su RUT
-    public Cliente buscarClientePorRut(String rut) {
+    /*public Cliente buscarClientePorRut(String rut) {
         for (Cliente cliente : listaCliente) {
             if (cliente.getRut().equals(rut)) {
                 return cliente; // Devuelve el cliente encontrado
             }
         }
         return null; // Cliente no encontrado
+    }*/
+    public void listar() {
+    	for(Cliente cliente : listaCliente) {
+    		System.out.println(cliente.mostrarPerfil());
+    	}
     }
 }

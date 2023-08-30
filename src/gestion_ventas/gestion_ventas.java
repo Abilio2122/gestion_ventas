@@ -12,8 +12,7 @@ public class gestion_ventas {
             
         gestionCliente gestionCliente = new gestionCliente();
         gestionEventos gestionEventos = new gestionEventos();
-        
-        Cliente logeado = null;
+        gestionEntradas gestionEntradas = new gestionEntradas();
         
         BufferedReader lector = new BufferedReader(new InputStreamReader(System.in));
 		
@@ -21,40 +20,27 @@ public class gestion_ventas {
         System.out.println("|      EventSales Pro        |");
         System.out.println("------------------------------");
 		
-        System.out.println("- Iniciar sesion (1)"); //Falta elaborar 
-        System.out.println("- Registrarse (2)");
-        System.out.println("- Salir (3)");
+        System.out.println("- Registrarse (1)");
+        System.out.println("- Salir (2)");
         
         int opc = Integer.parseInt(lector.readLine());
         
         switch (opc) {
 
             case 1:
-                if (logeado == null) {
-                    System.out.println("No se ha registrado ningún cliente. Regístrese primero.");
-                } else {
-                    boolean inicioSesionExitoso = logeado.iniciarSesion();
-                    if (inicioSesionExitoso) {
-                        // El inicio de sesión fue exitoso, puedes realizar acciones adicionales aquí
-                        break;
-                    }
-                }
-                break;
-
+            	 Cliente nuevoCliente = Cliente.registrar();
+                 gestionCliente.agregarCliente(nuevoCliente);
+                 break;
 			
             case 2:
-                Cliente nuevoCliente = Cliente.registrar();
-                gestionCliente.agregarCliente(nuevoCliente);
-                break;
-			
-            case 3:
-                System.out.println("------------------------------");
-                System.out.println("|            Adios           |");
-                System.out.println("------------------------------");
-                System.out.println("");
-                System.out.println("Muchas Gracias Por Preferirnos");
-                System.out.println("------------------------------");
-                return;
+            	 System.out.println("------------------------------");
+                 System.out.println("|            Adios           |");
+                 System.out.println("------------------------------");
+                 System.out.println("");
+                 System.out.println("Muchas Gracias Por Preferirnos");
+                 System.out.println("------------------------------");
+                 return;
+               
 			
             default:
      
@@ -87,22 +73,26 @@ public class gestion_ventas {
                     System.out.println("|           Perfil           |");
                     System.out.println("------------------------------");
 						
-                    logeado.mostrarPerfil();
+                    gestionCliente.listar();
                     break;
 					
                 case 2:
                     System.out.println("------------------------------");
                     System.out.println("|           Eventos          |");
                     System.out.println("------------------------------");
-                    //
-                    ArrayList<Eventos> eventos = gestionEventos.listarEventos();
-                    for (Eventos evento : eventos) {
-                        System.out.println("ID: " + evento.getIdEvento());
-                        System.out.println("Nombre: " + evento.getNombreEvento());
-                        System.out.println("Fecha: " + evento.getFechaEvento());
-                        System.out.println("Región: " + evento.getRegionEvento());
-                        System.out.println();
-                    }                     
+                    gestionEventos.listarEventos(); 
+                    
+                    System.out.println("Ingrese la Id del evento al que desea asistir");
+                    String i_d = lector.readLine();
+                    Eventos encontrado = gestionEventos.buscarEventoPorID(i_d);
+                    if(encontrado != null) {
+                    	System.out.println("Evento encontrado:");
+                    	System.out.println(encontrado.mostrarEventos());
+                    	
+                    	//Aqui debemos seguir con el pago
+                    }else {
+                    	System.out.println("El id ingresado no existe");
+                    }
                     break;
 					
                 case 3:
@@ -132,7 +122,33 @@ public class gestion_ventas {
                         if (contraIngresado.equals("123")) {
                             // Rut válido, permitir agregar eventos
                             
-                            gestionEventos.agregarEvento();
+                        	System.out.println("Ingrese el id del evento:");
+                            String idEvento = lector.readLine();
+                            
+                            System.out.println("Ingrese el nombre del evento:");
+                            String nombreEvento = lector.readLine();
+
+                            System.out.println("Ingrese la fecha del evento:");
+                            String fechaEvento = lector.readLine();
+
+                            System.out.println("Ingrese la región del evento:");
+                            String regionEvento = lector.readLine();
+                            
+                            System.out.println("Ingrese el id de la entrada:");
+                            String in = lector.readLine();
+                            
+                            System.out.println("Ingrese el tipo de evento:");
+                            String typeEvent = lector.readLine();
+                            
+                            System.out.println("Ingrese el precio de la entrada:");
+                            int precioEntrada = Integer.parseInt(lector.readLine());
+                            
+                            
+                            Eventos nuevoEvento = new Eventos(idEvento,nombreEvento, fechaEvento, regionEvento);
+                            gestionEventos.agregarEvento(nuevoEvento);
+                            
+                            Entrada nuevaEntrada = new Entrada(in,typeEvent,precioEntrada);
+                            gestionEntradas.agregarEntrada(nuevaEntrada);
                             
                         } else {
                             // Rut no válido, mostrar un mensaje de error
