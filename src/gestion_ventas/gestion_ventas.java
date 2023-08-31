@@ -12,7 +12,6 @@ public class gestion_ventas {
             
         gestionCliente gestionCliente = new gestionCliente();
         gestionEventos gestionEventos = new gestionEventos();
-        gestionEntradas gestionEntradas = new gestionEntradas();
         
         BufferedReader lector = new BufferedReader(new InputStreamReader(System.in));
 		
@@ -24,6 +23,8 @@ public class gestion_ventas {
         System.out.println("- Salir (2)");
         
         int opc = Integer.parseInt(lector.readLine());
+        
+        
         
         switch (opc) {
 
@@ -63,7 +64,8 @@ public class gestion_ventas {
             System.out.println("- Cerrar Sesion (6)");
             
             int opc2 = Integer.parseInt(lector.readLine());
-			
+            
+            gestionEventos.agregarEvento(new Eventos("2345","One piece","31 de agosto","Viña del Mar"));
 			
             switch(opc2) {
                         
@@ -135,13 +137,13 @@ public class gestion_ventas {
                             System.out.println("Ingrese la región del evento:");
                             String regionEvento = lector.readLine();
                             
-                            System.out.println("Ingrese el id de la entrada:");
+                            System.out.println("Ingrese el id de la entrada (QR para ingreso):");
                             String in = lector.readLine();
                             
                             System.out.println("Ingrese el tipo de evento:");
                             String typeEvent = lector.readLine();
                             
-                            System.out.println("Ingrese el precio de la entrada:");
+                            System.out.println("Ingrese el precio que tendrá la entrada:");
                             int precioEntrada = Integer.parseInt(lector.readLine());
                             
                             
@@ -150,8 +152,10 @@ public class gestion_ventas {
                             
                             System.out.println("");
                             
+                            //Se implentará en un futuro un límite de entradas fijas para un evento//
+                            
                             Entrada nuevaEntrada = new Entrada(in,typeEvent,precioEntrada);
-                            gestionEntradas.agregarEntrada(nuevaEntrada);
+                            nuevoEvento.agregarEntrada(nuevaEntrada);
                             
                         } else {
                             // Rut no válido, mostrar un mensaje de error

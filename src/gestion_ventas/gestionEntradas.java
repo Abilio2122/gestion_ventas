@@ -5,7 +5,7 @@ import java.util.HashMap;
 
 public class gestionEntradas {
 	private ArrayList<Entrada> listaEntradas = new ArrayList<>();
-    private HashMap<String,Entrada> mapEntradas = new HashMap(); 
+        private HashMap<String,Entrada> mapEntradas = new HashMap(); 
     
     
     public void agregarEntrada(Entrada entrada) {
@@ -19,4 +19,12 @@ public class gestionEntradas {
     		System.out.println("Ya existe esta entrada o la Id fue mal ingresada");
     	}
     }
+    
+    
+    public void agregarEntrada(String idEntrada, String tipoEvento, int precioEntrada) {
+        Entrada nuevaEntrada = new Entrada(idEntrada, tipoEvento, precioEntrada);
+        agregarEntrada(nuevaEntrada);
+    }
+    
+    
 }

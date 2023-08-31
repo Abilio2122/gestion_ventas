@@ -6,7 +6,8 @@ public class Eventos {
 	private String idEvento;
 	private String nombreEvento;
 	private String fechaEvento;
-    private String regionEvento;
+        private String regionEvento;
+        gestionEntradas gestionEntradas = new gestionEntradas();
         
         public Eventos(String idEvento, String nombreEvento, String fechaEvento, String regionEvento) {
         	this.idEvento=idEvento;
@@ -49,7 +50,11 @@ public class Eventos {
         
         public String mostrarEventos() {
         	return "ID: " + idEvento + "\nNombre: " + nombreEvento + "\nFecha: " + fechaEvento + "\nRegion: " + regionEvento;
+                
         }
         
+        public void agregarEntrada(Entrada entrada ){
+            gestionEntradas.agregarEntrada(entrada);
+        }        
         
 }

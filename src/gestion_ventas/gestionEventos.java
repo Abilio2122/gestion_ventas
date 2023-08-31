@@ -50,6 +50,10 @@ public class gestionEventos {
         }*/
         
     }
+    public void agregarEvento(String idEvento, String nombreEvento, String fechaEvento, String regionEvento) {
+        Eventos nuevoEvento = new Eventos(idEvento, nombreEvento, fechaEvento, regionEvento);
+        agregarEvento(nuevoEvento);
+    }
     
     public Eventos buscarEventoPorID(String id) { 
         if(mapEventos.containsKey(id)) {
