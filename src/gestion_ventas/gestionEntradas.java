@@ -4,9 +4,13 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 public class gestionEntradas {
-	private ArrayList<Entrada> listaEntradas = new ArrayList<>();
-        private HashMap<String,Entrada> mapEntradas = new HashMap(); 
+	private ArrayList<Entrada> listaEntradas;
+    private HashMap<String,Entrada> mapEntradas; 
     
+    public gestionEntradas() {
+    	listaEntradas = new ArrayList<Entrada>();
+    	mapEntradas = new HashMap<String,Entrada>();
+    }
     
     public void agregarEntrada(Entrada entrada) {
     	

@@ -11,8 +11,15 @@ import java.io.BufferedReader;
  */
 public class gestionEventos {
     
-    private ArrayList<Eventos> listaEventos = new ArrayList<>();
-    private HashMap<String,Eventos> mapEventos = new HashMap(); 
+    private ArrayList<Eventos> listaEventos;
+    private HashMap<String,Eventos> mapEventos; 
+    
+    
+    public gestionEventos() {
+    	listaEventos = new ArrayList<Eventos>();
+    	mapEventos = new HashMap<String,Eventos>();
+    }
+    
     
     //private BufferedReader lector = new BufferedReader(new InputStreamReader(System.in));
     

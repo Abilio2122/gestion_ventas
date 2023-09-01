@@ -1,6 +1,7 @@
 package gestion_ventas;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 /**
  *
@@ -8,7 +9,11 @@ import java.util.ArrayList;
  */
 public class gestionCliente {
     
-    private ArrayList<Cliente> listaCliente = new ArrayList<>();
+    private ArrayList<Cliente> listaCliente;
+    
+    public gestionCliente() {
+    	listaCliente = new ArrayList<>();
+    }
     
     // Método para agregar un cliente a la lista
     public void agregarCliente(Cliente cliente) {
