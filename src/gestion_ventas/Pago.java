@@ -45,13 +45,11 @@ public class Pago{
         System.out.println("-"+name);
         System.out.println("-"+id);
         System.out.println("si/no");
+        
+        ///////////////////////////
         System.out.println("el metodo de pago es:"+metodoPago);
         
     }
-    
-
-    
-
 }
     
     

@@ -32,31 +32,9 @@ public class gestionEventos {
     	}
     	else {
     		System.out.println("Ya existe este evento o la Id fue mal ingresada");
-    	}
-        
-        /*try {
-            System.out.println("Ingrese el id del evento:");
-            String idEvento = lector.readLine();
-            
-            System.out.println("Ingrese el nombre del evento:");
-            String nombreEvento = lector.readLine();
-
-            System.out.println("Ingrese la fecha del evento:");
-            String fechaEvento = lector.readLine();
-
-            System.out.println("Ingrese la región del evento:");
-            String regionEvento = lector.readLine();
-            
-            Eventos evento = new Eventos(idEvento,nombreEvento, fechaEvento, regionEvento);
-            listaEventos.add(evento);
-
-            System.out.println("Evento agregado correctamente.");
-            
-        } catch (IOException e) {
-            System.err.println("Error al leer la entrada del usuario.");
-        }*/
-        
+    	}  
     }
+    
     public void agregarEvento(String idEvento, String nombreEvento, String fechaEvento, String regionEvento) {
         Eventos nuevoEvento = new Eventos(idEvento, nombreEvento, fechaEvento, regionEvento);
         agregarEvento(nuevoEvento);
@@ -69,7 +47,7 @@ public class gestionEventos {
         return null;
     }
     
-    public void eliminarEvento(String idEvento) { //En casod e que activemos un apartado pa eliminar eventos aca esta
+    public void eliminarEvento(String idEvento) { //En caso de que activemos un apartado pa eliminar eventos aca esta
     	if(mapEventos.containsKey(idEvento)) {
     		Eventos elimina3 = mapEventos.remove(idEvento);
     		listaEventos.remove(elimina3);
