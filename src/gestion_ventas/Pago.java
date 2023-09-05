@@ -40,14 +40,14 @@ public class Pago{
     public void mostrarInfo(Cliente n, Cliente r){
     	String name=n.getNombre();
     	String id=r.getRut();
-    	
+    	gestionPago pago = new gestionPago();
     	System.out.println("¿Estos son sus datos?");
         System.out.println("-"+name);
         System.out.println("-"+id);
         System.out.println("si/no");
         
-        ///////////////////////////
-        System.out.println("el metodo de pago es:"+metodoPago);
+        
+        pago.mostrarMetodosPago();
         
     }
 }
