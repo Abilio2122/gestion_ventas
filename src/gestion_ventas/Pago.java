@@ -15,6 +15,8 @@ public class Pago{
         this.montoPago = montoPago;
     } 
     
+    //Getters
+    
     public String getIdPago() {
 		return idPago;
     }
@@ -24,6 +26,8 @@ public class Pago{
     public String getMetodoPago() {
 		return metodoPago;
     }
+    
+    //Setters
     
     public void setIdPago(String idPago) {
 		this.idPago = idPago;
