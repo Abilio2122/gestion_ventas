@@ -23,6 +23,8 @@ public class gestionEventos {
     
     //private BufferedReader lector = new BufferedReader(new InputStreamReader(System.in));
     
+    
+    // agregar evento con una variable de tipo evento
     public void agregarEvento(Eventos evento) {
     	
     	if(!mapEventos.containsKey(evento.getIdEvento())) {
@@ -35,6 +37,7 @@ public class gestionEventos {
     	}  
     }
     
+    //agrega evento de forma manual dando valores detalle por detalle
     public void agregarEvento(String idEvento, String nombreEvento, String fechaEvento, String regionEvento) {
         Eventos nuevoEvento = new Eventos(idEvento, nombreEvento, fechaEvento, regionEvento);
         agregarEvento(nuevoEvento);
@@ -47,11 +50,19 @@ public class gestionEventos {
         return null;
     }
     
-    public void eliminarEvento(String idEvento) { //En caso de que activemos un apartado pa eliminar eventos aca esta
-    	if(mapEventos.containsKey(idEvento)) {
-    		Eventos elimina3 = mapEventos.remove(idEvento);
-    		listaEventos.remove(elimina3);
-    	}
+    
+    public void eliminarEvento(String idEvento) {
+        try {
+            if (mapEventos.containsKey(idEvento)) {
+                Eventos elimina3 = mapEventos.remove(idEvento);
+                listaEventos.remove(elimina3);
+                System.out.println("Evento eliminado correctamente.");
+            } else {
+                throw new Exception("El evento con ID " + idEvento + " no existe.");
+            }
+        } catch (Exception e) {
+            System.out.println("Error: " + e.getMessage());
+        }
     }
     
     public void listarEventos() {
