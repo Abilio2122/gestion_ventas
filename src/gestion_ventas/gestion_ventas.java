@@ -93,7 +93,16 @@ public class gestion_ventas {
                     	System.out.println("Evento encontrado:");
                     	System.out.println(encontrado.mostrarEventos());
                     	
-                    	//aqui trabajo con 
+                    	//aqui trabajo con limite de entradas por evento
+                    	
+                    	if(encontrado.verificarLimiteEntradaEvento()) {
+                    		System.out.println("Cupos suficientes para compra:");
+                    	}
+                    	else {
+                    		System.out.println("Cupos insuficientes para compra:");
+                    	}
+                    	
+                    	
                     	
                     	
                     	//Aqui debemos seguir con el pago
