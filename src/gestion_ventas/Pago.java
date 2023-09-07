@@ -7,11 +7,10 @@ public class Pago{
     private int montoPago;
     private String metodoPago;
     
-    public Pago(String idPago) {
-        this.idPago = idPago;
-    }
     
-    public Pago(String metodoPago, int montoPago) {
+    public Pago(String idPago, String metodoPago, int montoPago) {
+        
+        this.idPago = idPago;
         this.metodoPago = metodoPago;
         this.montoPago = montoPago;
     }
@@ -49,7 +48,6 @@ public class Pago{
       System.out.println("si/no");
         
         
-        pago.mostrarMetodosPago();
         
     }
 }

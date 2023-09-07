@@ -10,9 +10,10 @@ public class gestionPago {
     	listaPago = new ArrayList<Pago>();
     }
     
-    public void agregarMetPago(Pago metPago) {
-    	listaPago.add(metPago);
+    public void agregarInfoPago(Pago infoPago) {
+    	listaPago.add(infoPago);
     }
+<<<<<<< HEAD
     
     //por ver
     public void tiposPago() {
@@ -23,13 +24,21 @@ public class gestionPago {
         gestion.agregarMetPago(new Pago("Mercado Pago <(3)>"));
         gestion.agregarMetPago(new Pago("Transferencia Bancaria <(4)>"));
     }
+=======
 
+>>>>>>> branch 'master' of https://github.com/Abilio2122/gestion_ventas.git
+
+<<<<<<< HEAD
 	public void mostrarMetodosPago() {
         System.out.println("Métodos de Pago Disponibles:");
         for (Pago pago : listaPago) {
             System.out.println(pago);
         }
     }
+=======
+    
+    //Hay que ver funcion mostrarMetodosPago()
+>>>>>>> branch 'master' of https://github.com/Abilio2122/gestion_ventas.git
 
     
 }

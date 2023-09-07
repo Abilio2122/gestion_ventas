@@ -26,17 +26,18 @@ public class gestionEventos {
     
     // agregar evento con una variable de tipo evento
     public void agregarEvento(Eventos evento) {
-    	
-    	if(!mapEventos.containsKey(evento.getIdEvento())) {
-    		listaEventos.add(evento);
-    		mapEventos.put(evento.getIdEvento(), evento);
-            System.out.println("Evento agregado correctamente.");
-    	}
-    	else {
-    		System.out.println("Ya existe este evento o la Id fue mal ingresada");
-    	}  
+        try {
+            if (!mapEventos.containsKey(evento.getIdEvento())) {
+                listaEventos.add(evento);
+                mapEventos.put(evento.getIdEvento(), evento);
+                System.out.println("Evento agregado correctamente.");
+            } else {
+                throw new Exception("Ya existe este evento o la Id fue mal ingresada.");
+            }
+        } catch (Exception e) {
+            System.out.println("Error: " + e.getMessage());
+        }
     }
-    
     //agrega evento de forma manual dando valores detalle por detalle
     public void agregarEvento(String idEvento, String nombreEvento, String fechaEvento, String regionEvento) {
         Eventos nuevoEvento = new Eventos(idEvento, nombreEvento, fechaEvento, regionEvento);
