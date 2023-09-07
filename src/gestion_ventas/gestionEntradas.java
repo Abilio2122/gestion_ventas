@@ -13,15 +13,17 @@ public class gestionEntradas {
     }
     
     public void agregarEntrada(Entrada entrada) {
-    	
-    	if(!mapEntradas.containsKey(entrada.getIdEntrada())) {
-    		listaEntradas.add(entrada);
-    		mapEntradas.put(entrada.getIdEntrada(), entrada);
-            System.out.println("Entrada agregada correctamente");
-    	}
-    	else {
-    		System.out.println("Ya existe esta entrada o la Id fue mal ingresada");
-    	}
+        try {
+            if (!mapEntradas.containsKey(entrada.getIdEntrada())) {
+                listaEntradas.add(entrada);
+                mapEntradas.put(entrada.getIdEntrada(), entrada);
+                System.out.println("Entrada agregada correctamente.");
+            } else {
+                throw new Exception("Ya existe esta entrada o la ID fue mal ingresada.");
+            }
+        } catch (Exception e) {
+            System.out.println("Error: " + e.getMessage());
+        }
     }
     
     
@@ -30,5 +32,11 @@ public class gestionEntradas {
         agregarEntrada(nuevaEntrada);
     }
     
-    
+    public Entrada buscarEntradaPorID(String id) { 
+        if(mapEntradas.containsKey(id)) {
+        	return mapEntradas.get(id);
+        }
+        return null;
+    }
+
 }

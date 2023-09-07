@@ -13,7 +13,7 @@ public class Pago{
         this.idPago = idPago;
         this.metodoPago = metodoPago;
         this.montoPago = montoPago;
-    }
+    } 
     
     public String getIdPago() {
 		return idPago;

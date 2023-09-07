@@ -3,7 +3,7 @@ package gestion_ventas;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.io.*;
-import java.util.ArrayList;
+
 
 public class gestion_ventas {
     
@@ -12,6 +12,7 @@ public class gestion_ventas {
             
         gestionCliente gestionCliente = new gestionCliente();
         gestionEventos gestionEventos = new gestionEventos();
+        gestionPago gestionPago = new gestionPago();
         
         BufferedReader lector = new BufferedReader(new InputStreamReader(System.in));
 		
@@ -92,10 +93,14 @@ public class gestion_ventas {
                     	System.out.println("Evento encontrado:");
                     	System.out.println(encontrado.mostrarEventos());
                     	
+                    	//aqui trabajo con 
+                    	
+                    	
                     	//Aqui debemos seguir con el pago
                         
                         
                         
+                        gestionPago.mostrarMetodosPago(); //Se muestran los metodos de pago disponibles
                         
                         
                         
@@ -143,8 +148,7 @@ public class gestion_ventas {
                             System.out.println("Ingrese la región del evento:");
                             String regionEvento = lector.readLine();
                             
-                            System.out.println("Ingrese el id de la entrada (QR para ingreso):");
-                            String in = lector.readLine();
+                            String idEntrada =idEvento;
                             
                             System.out.println("Ingrese el tipo de evento:");
                             String typeEvent = lector.readLine();
@@ -152,6 +156,8 @@ public class gestion_ventas {
                             System.out.println("Ingrese el precio que tendrá la entrada:");
                             int precioEntrada = Integer.parseInt(lector.readLine());
                             
+
+
                             
                             Eventos nuevoEvento = new Eventos(idEvento,nombreEvento, fechaEvento, regionEvento);
                             gestionEventos.agregarEvento(nuevoEvento);
@@ -160,8 +166,11 @@ public class gestion_ventas {
                             
                             //Se implentará en un futuro un límite de entradas fijas para un evento//
                             
-                            Entrada nuevaEntrada = new Entrada(in,typeEvent,precioEntrada);
+                            Entrada nuevaEntrada = new Entrada(idEntrada,typeEvent,precioEntrada);
                             nuevoEvento.agregarEntrada(nuevaEntrada);
+
+                            
+                            
                             
                         } else {
                             // Rut no válido, mostrar un mensaje de error

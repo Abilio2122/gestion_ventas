@@ -13,6 +13,8 @@ public class Entrada {
 		this.tipoEvento = tipoEvento;
 		this.precioEntrada = precioEntrada;
 	}
+
+	//Getters
 	
 	public int getPrecioEntrada() {
 		return precioEntrada;
@@ -25,8 +27,10 @@ public class Entrada {
 	public String getTipoEvento() {
 		return tipoEvento;
 	}
-        
-        public void setIdEntrada(String idEntrada) {
+    
+	// Setters 
+	
+    public void setIdEntrada(String idEntrada) {
 		this.idEntrada = idEntrada;
 	}
 	

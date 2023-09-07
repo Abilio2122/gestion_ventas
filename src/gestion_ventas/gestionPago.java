@@ -17,8 +17,11 @@ public class gestionPago {
 
         //Hay que ver funcion mostrarMetodosPago()
     
-    
-
-
-    
+    public void pagomostrarMetodosPago(){
+        System.out.println("Tarjeta De Credito  <(1)>");
+        System.out.println("Tarjeta Debito  <(2)>");
+        System.out.println("WebPay  <(3)>");
+        System.out.println("Mercado Pago  <(4)>");
+        System.out.println("Cancelar  <(5)>");
+    }
 }

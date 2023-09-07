@@ -22,6 +22,8 @@ public class Cliente {
         public String getRut() {
 		return rut;
 	}
+       
+    //Getters
         
 	public String getNombre() {
 		return nombre;
@@ -35,7 +37,9 @@ public class Cliente {
 		return edad;
 	}
 	
-        public void setRut(String rut) {
+	// Setters
+	
+    public void setRut(String rut) {
 		this.rut = rut;
 	}
 	
@@ -78,27 +82,7 @@ public class Cliente {
         	return cliente;
         }
         
-        /*public boolean iniciarSesion()throws IOException {
-            
-        	BufferedReader lector = new BufferedReader(new InputStreamReader(System.in));
-        	
-        	System.out.println("Por favor, ingrese su nombre de usuario: ");
-                String clienteIngresado = lector.readLine();
-                
-                System.out.println("Ingrese su contraseña: ");
-                String passwordIngresada = lector.readLine();
-                
-                // Verificar si los datos coinciden con el cliente
-    		if (clienteIngresado.equals(nombre) && passwordIngresada.equals(password)) {
-                    System.out.println("Inicio de sesión exitoso. ¡Bienvenido!");
-                    return true;
-                } else {    
-                    System.out.println("Inicio de sesión fallido. Por favor, verifique sus credenciales.");
-                    return false;
-                }
-                    
-        }*/         
-
+     
         public String mostrarPerfil() {
             
         	return "Nombre: " + nombre + "\nRut: " + rut + "\nEdad: " + edad;

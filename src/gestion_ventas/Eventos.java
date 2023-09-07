@@ -6,16 +6,22 @@ public class Eventos {
 	private String idEvento;
 	private String nombreEvento;
 	private String fechaEvento;
-        private String regionEvento;
-        gestionEntradas gestionEntradas = new gestionEntradas();
+    private String regionEvento;
+    private int cantEntradasEvento;
+
+    
+    gestionEntradas gestionEntradas = new gestionEntradas();
         
-        public Eventos(String idEvento, String nombreEvento, String fechaEvento, String regionEvento) {
+    public Eventos(String idEvento, String nombreEvento, String fechaEvento, String regionEvento) {
         	this.idEvento=idEvento;
         	this.nombreEvento=nombreEvento;
         	this.fechaEvento=fechaEvento;
             this.regionEvento=regionEvento;
 	}
 	
+    
+    	//Getters
+    
         public String getIdEvento() {
         	return idEvento;
         }
@@ -28,10 +34,12 @@ public class Eventos {
             return fechaEvento;
         }
         
-        public String getRegionEvento(){
-            return regionEvento;
+        public int getCantEntradasEvento() {
+        	return cantEntradasEvento;
         }
         
+        //Setters
+            
         public void setidEvento(String idEvento) {
         	this.idEvento = idEvento;
         }
@@ -48,6 +56,12 @@ public class Eventos {
         	this.regionEvento = regionEvento;
         }
         
+        public void setCantEntradasEvento(int cantEntradasEvento) {
+        	this.cantEntradasEvento = cantEntradasEvento;
+        }
+        
+        
+               
         public String mostrarEventos() {
         	return "ID: " + idEvento + "\nNombre: " + nombreEvento + "\nFecha: " + fechaEvento + "\nRegion: " + regionEvento;
                 
