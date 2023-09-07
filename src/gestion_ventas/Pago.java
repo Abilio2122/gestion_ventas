@@ -40,11 +40,13 @@ public class Pago{
     public void mostrarInfo(Cliente n, Cliente r){
     	String name=n.getNombre();
     	String id=r.getRut();
+    	
+    	//por ver 'pago'
     	gestionPago pago = new gestionPago();
     	System.out.println("¿Estos son sus datos?");
-        System.out.println("-"+name);
-        System.out.println("-"+id);
-        System.out.println("si/no");
+      System.out.println("-"+name);
+      System.out.println("-"+id);
+      System.out.println("si/no");
         
         
         pago.mostrarMetodosPago();

@@ -13,7 +13,8 @@ public class gestionPago {
     public void agregarMetPago(Pago metPago) {
     	listaPago.add(metPago);
     }
-
+    
+    //por ver
     public void tiposPago() {
         gestionPago gestion = new gestionPago();
         gestion.agregarMetPago(new Pago("Tarjeta de Crédito <(0)>"));
