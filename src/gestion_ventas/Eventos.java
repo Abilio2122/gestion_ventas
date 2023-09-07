@@ -12,11 +12,12 @@ public class Eventos {
     
     gestionEntradas gestionEntradas = new gestionEntradas();
         
-    public Eventos(String idEvento, String nombreEvento, String fechaEvento, String regionEvento) {
+    public Eventos(String idEvento, String nombreEvento, String fechaEvento, String regionEvento, int cantEntradasEvento) {
         	this.idEvento=idEvento;
         	this.nombreEvento=nombreEvento;
         	this.fechaEvento=fechaEvento;
             this.regionEvento=regionEvento;
+            this.cantEntradasEvento=cantEntradasEvento;
 	}
 	
     
@@ -71,4 +72,21 @@ public class Eventos {
             gestionEntradas.agregarEntrada(entrada);
         }        
         
+        
+        public boolean verificarLimiteEntradaEvento() {
+            try {
+                if (cantEntradasEvento > 0) {
+                    cantEntradasEvento--;
+                    System.out.println("Entrada comprada con éxito.");
+                    return true;
+                } else {
+                    System.out.println("Lamentamos decirle que no quedan entradas para este evento.");
+                    return false;
+                }
+            } catch (Exception e) {
+                System.out.println("Error al verificar la disponibilidad de entradas: " + e.getMessage());
+                return false;
+            }
+        }
+
 }
