@@ -93,6 +93,12 @@ public class gestion_ventas {
                     	System.out.println(encontrado.mostrarEventos());
                     	
                     	//Aqui debemos seguir con el pago
+                        
+                        
+                        
+                        
+                        
+                        
                     }else {
                     	System.out.println("El id ingresado no existe");
                     }
