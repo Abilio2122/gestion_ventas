@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 public class gestionEntradas {
-	private ArrayList<Entrada> listaEntradas;
+private ArrayList<Entrada> listaEntradas;
     private HashMap<String,Entrada> mapEntradas; 
     
     public gestionEntradas() {

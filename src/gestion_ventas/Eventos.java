@@ -3,9 +3,9 @@ package gestion_ventas;
 import java.io.IOException;
 
 public class Eventos {
-	private String idEvento;
-	private String nombreEvento;
-	private String fechaEvento;
+    private String idEvento;
+    private String nombreEvento;
+    private String fechaEvento;
     private String regionEvento;
     private int cantEntradasEvento;
 
@@ -77,14 +77,17 @@ public class Eventos {
             try {
                 if (cantEntradasEvento > 0) {
                     cantEntradasEvento--;
-                    System.out.println("Entrada comprada con éxito.");
+                    System.out.println("Ingreso Para compra de entrada exitoso!.");
+                    System.out.println("");
                     return true;
                 } else {
                     System.out.println("Lamentamos decirle que no quedan entradas para este evento.");
+                    System.out.println("");
                     return false;
                 }
             } catch (Exception e) {
                 System.out.println("Error al verificar la disponibilidad de entradas: " + e.getMessage());
+                System.out.println("");
                 return false;
             }
         }

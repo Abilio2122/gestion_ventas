@@ -66,7 +66,7 @@ public class gestion_ventas {
             
             int opc2 = Integer.parseInt(lector.readLine());
             
-            gestionEventos.agregarEvento(new Eventos("2345","One piece","31 de agosto","Viña del Mar"));
+            gestionEventos.agregarEvento(new Eventos("2345","One piece","31 de agosto","Viña del Mar", 1));
 			
             switch(opc2) {
                         
@@ -90,28 +90,46 @@ public class gestion_ventas {
                     String i_d = lector.readLine();
                     Eventos encontrado = gestionEventos.buscarEventoPorID(i_d);
                     if(encontrado != null) {
+                        System.out.println("");
                     	System.out.println("Evento encontrado:");
                     	System.out.println(encontrado.mostrarEventos());
-                    	
+                 
                     	//aqui trabajo con limite de entradas por evento
                     	
                     	if(encontrado.verificarLimiteEntradaEvento()) {
                     		System.out.println("Cupos suficientes para compra:");
+                                System.out.println("Quieres comprar?");
+                                System.out.println("<1> Si    <2> No ");
+                                
+                                int opc3 = Integer.parseInt(lector.readLine());             ///Efectua el pago
+                                switch(opc3){
+                                    case 1:
+                                        System.out.println("Ingrese su Rut:");
+                                        String idPago = lector.readLine();
+                                        
+                                        
+                                        gestionPago.efectuarPago(idPago);
+                                        
+                                        int cantE = encontrado.getCantEntradasEvento();
+                                        cantE--;
+                                        encontrado.setCantEntradasEvento(cantE);
+                                        
+                                        System.out.println("Compra efectuada con éxito!!");
+                                        System.out.println("");
+                                        break;
+                                        
+                                    case 2:
+                                        break;
+                                            
+                                }
+                                
+                                
                     	}
                     	else {
                     		System.out.println("Cupos insuficientes para compra:");
                     	}
                     	
-                    	
-                    	
-                    	
-                    	//Aqui debemos seguir con el pago
-                        
-                        
-                        
-                        gestionPago.mostrarMetodosPago(); //Se muestran los metodos de pago disponibles
-                        
-                        
+
                         
                     }else {
                     	System.out.println("El id ingresado no existe");
@@ -145,7 +163,7 @@ public class gestion_ventas {
                         if (contraIngresado.equals("123")) {
                             // Rut válido, permitir agregar eventos
                             
-                        	System.out.println("Ingrese el id del evento:");
+                            System.out.println("Ingrese el id del evento:");
                             String idEvento = lector.readLine();
                             
                             System.out.println("Ingrese el nombre del evento:");
@@ -165,10 +183,12 @@ public class gestion_ventas {
                             System.out.println("Ingrese el precio que tendrá la entrada:");
                             int precioEntrada = Integer.parseInt(lector.readLine());
                             
+                            System.out.println("Ingrese la cantidad de entradas que tendrá el evento:");
+                            int cantidadEntrada = Integer.parseInt(lector.readLine());
 
 
                             
-                            Eventos nuevoEvento = new Eventos(idEvento,nombreEvento, fechaEvento, regionEvento);
+                            Eventos nuevoEvento = new Eventos(idEvento,nombreEvento, fechaEvento, regionEvento, cantidadEntrada);
                             gestionEventos.agregarEvento(nuevoEvento);
                             
                             System.out.println("");

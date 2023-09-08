@@ -39,8 +39,8 @@ public class gestionEventos {
         }
     }
     //agrega evento de forma manual dando valores detalle por detalle
-    public void agregarEvento(String idEvento, String nombreEvento, String fechaEvento, String regionEvento) {
-        Eventos nuevoEvento = new Eventos(idEvento, nombreEvento, fechaEvento, regionEvento);
+    public void agregarEvento(String idEvento, String nombreEvento, String fechaEvento, String regionEvento, int cantidadEntrada) {
+        Eventos nuevoEvento = new Eventos(idEvento, nombreEvento, fechaEvento, regionEvento, cantidadEntrada);
         agregarEvento(nuevoEvento);
     }
     
