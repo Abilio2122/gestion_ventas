@@ -12,7 +12,7 @@ public class gestion_ventas {
             
         gestionCliente gestionCliente = new gestionCliente();
         gestionEventos gestionEventos = new gestionEventos();
-        gestionEventos.importarEventosDesdeCSV("C:\\Users\\sebas\\git\\gestion_ventas\\Eventos.csv");
+        gestionEventos.importarEventosDesdeCSV("C:\\Users\\ruben\\git\\gestion_ventas\\Eventos.csv");
         gestionPago gestionPago = new gestionPago();
         
         

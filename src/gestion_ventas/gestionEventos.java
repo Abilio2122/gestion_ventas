@@ -21,6 +21,7 @@ public class gestionEventos {
     public void importarEventosDesdeCSV(String archivoCSV) {
         try (BufferedReader br = new BufferedReader(new FileReader(archivoCSV))) {
             String linea;
+            br.readLine();
             while ((linea = br.readLine()) != null) {
                 String[] campos = linea.split(",");
                 if (campos.length == 5) { 
