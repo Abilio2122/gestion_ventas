@@ -5,10 +5,8 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.io.*;
 import java.io.BufferedReader;
-/**
- *
- * @author karth
- */
+import java.io.FileReader;
+
 public class gestionEventos {
     
     private ArrayList<Eventos> listaEventos;
@@ -20,8 +18,28 @@ public class gestionEventos {
     	mapEventos = new HashMap<String,Eventos>();
     }
     
-    
-    //private BufferedReader lector = new BufferedReader(new InputStreamReader(System.in));
+    public void importarEventosDesdeCSV(String archivoCSV) {
+        try (BufferedReader br = new BufferedReader(new FileReader(archivoCSV))) {
+            String linea;
+            while ((linea = br.readLine()) != null) {
+                String[] campos = linea.split(",");
+                if (campos.length == 4) {
+                    String idEvento = campos[0];
+                    String nombreEvento = campos[1];
+                    String fechaEvento = campos[2];
+                    String regionEvento = campos[3];
+                    int cantEntradasEvento = 0;
+                    Eventos evento = new Eventos(idEvento, nombreEvento, fechaEvento, regionEvento, cantEntradasEvento);
+                    agregarEvento(evento);
+                } else {
+                    System.out.println("Error: La línea no tiene el formato esperado.");
+                } 
+            }
+            
+        } catch (IOException e) {
+            System.out.println("Error al importar eventos desde el archivo CSV: " + e.getMessage());
+        }
+    }
     
     
     // agregar evento con una variable de tipo evento
@@ -30,9 +48,9 @@ public class gestionEventos {
             if (!mapEventos.containsKey(evento.getIdEvento())) {
                 listaEventos.add(evento);
                 mapEventos.put(evento.getIdEvento(), evento);
-                System.out.println("Evento agregado correctamente.");
+                //System.out.println("Evento agregado correctamente.");
             } else {
-                throw new Exception("Ya existe este evento o la Id fue mal ingresada.");
+                //throw new Exception("Ya existe este evento o la Id fue mal ingresada.");
             }
         } catch (Exception e) {
             System.out.println("Error: " + e.getMessage());
@@ -72,6 +90,7 @@ public class gestionEventos {
     	}
         for(Eventos evento : listaEventos) {
         	System.out.println(evento.mostrarEventos());
+        	System.out.println();
         }
     }
     
