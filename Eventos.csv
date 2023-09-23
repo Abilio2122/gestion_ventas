@@ -1,21 +1,21 @@
-ID,Nombre,Fecha,Región
-1001,Seminario de Marketing Digital,15 de julio,Santiago
-2002,Taller de Innovación Empresarial,5 de septiembre,Valparaíso
-3003,Conferencia de Tecnología y Negocios,12 de octubre,Concepción
-4004,Curso de Desarrollo Web,8 de junio,Antofagasta
-5005,Simposio de Ciencia y Tecnología,20 de agosto,Temuco
-6006,Jornada de Emprendimiento Social,3 de noviembre,Arica y Parinacota
-7007,Charla sobre Sostenibilidad Ambiental,19 de mayo,Coquimbo
-8008,Seminario de Finanzas Personales,7 de diciembre,La Serena
-9009,Taller de Liderazgo Empresarial,10 de febrero,Rancagua
-1010,Conferencia de Inteligencia Artificial,25 de marzo,Valdivia
-1111,Curso de Diseño Gráfico,14 de julio,Osorno
-1212,Simposio de Educación Inclusiva,2 de agosto,Copiapó
-1313,Jornada de Salud Mental,9 de septiembre,Punta Arenas
-1414,Seminario de Recursos Humanos,18 de octubre,Iquique
-1515,Taller de Estrategia de Negocios,6 de noviembre,Talca
-1616,Conferencia de Ciberseguridad,30 de enero,Chillán
-1717,Curso de Marketing Digital,22 de marzo,Calama
-1818,Simposio de Medio Ambiente,11 de abril,Valparaíso
-1919,Taller de Emprendimiento Tecnológico,5 de mayo,Viña del Mar
-2020,Charla sobre Innovación en Educación,13 de junio,Arica
+ID,Nombre,Fecha,Región,Entradas Disponibles
+1001,Seminario de Marketing Digital,15 de julio,Santiago,1
+2002,Taller de Innovación Empresarial,5 de septiembre,Valparaíso,1
+3003,Conferencia de Tecnología y Negocios,12 de octubre,Concepción,1
+4004,Curso de Desarrollo Web,8 de junio,Antofagasta,1
+5005,Simposio de Ciencia y Tecnología,20 de agosto,Temuco,1
+6006,Jornada de Emprendimiento Social,3 de noviembre,Arica y Parinacota,1
+7007,Charla sobre Sostenibilidad Ambiental,19 de mayo,Coquimbo,1
+8008,Seminario de Finanzas Personales,7 de diciembre,La Serena,1
+9009,Taller de Liderazgo Empresarial,10 de febrero,Rancagua,1
+1010,Conferencia de Inteligencia Artificial,25 de marzo,Valdivia,1
+1111,Curso de Diseño Gráfico,14 de julio,Osorno,1
+1212,Simposio de Educación Inclusiva,2 de agosto,Copiapó,1
+1313,Jornada de Salud Mental,9 de septiembre,Punta Arenas,1
+1414,Seminario de Recursos Humanos,18 de octubre,Iquique,1
+1515,Taller de Estrategia de Negocios,6 de noviembre,Talca,1
+1616,Conferencia de Ciberseguridad,30 de enero,Chillán,1
+1717,Curso de Marketing Digital,22 de marzo,Calama,1
+1818,Simposio de Medio Ambiente,11 de abril,Valparaíso,1
+1919,Taller de Emprendimiento Tecnológico,5 de mayo,Viña del Mar,1
+2020,Charla sobre Innovación en Educación,13 de junio,Arica,1

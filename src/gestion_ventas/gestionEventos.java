@@ -23,23 +23,23 @@ public class gestionEventos {
             String linea;
             while ((linea = br.readLine()) != null) {
                 String[] campos = linea.split(",");
-                if (campos.length == 4) {
+                if (campos.length == 5) { 
                     String idEvento = campos[0];
                     String nombreEvento = campos[1];
                     String fechaEvento = campos[2];
                     String regionEvento = campos[3];
-                    int cantEntradasEvento = 0;
+                    int cantEntradasEvento = Integer.parseInt(campos[4]); // Obtener el número de entradas desde el CSV
                     Eventos evento = new Eventos(idEvento, nombreEvento, fechaEvento, regionEvento, cantEntradasEvento);
                     agregarEvento(evento);
                 } else {
                     System.out.println("Error: La línea no tiene el formato esperado.");
-                } 
+                }
             }
-            
         } catch (IOException e) {
             System.out.println("Error al importar eventos desde el archivo CSV: " + e.getMessage());
         }
     }
+
     
     
     // agregar evento con una variable de tipo evento
