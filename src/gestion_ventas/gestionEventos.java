@@ -95,6 +95,18 @@ public class gestionEventos {
         }
     }
     
+    public ArrayList<Eventos> obtenerEventosPorRegion(String nombreRegion) {
+        ArrayList<Eventos> eventosPorRegion = new ArrayList<>();
+        
+        for (Eventos evento : listaEventos) {
+            if (evento.getRegionEvento().toLowerCase().contains(nombreRegion.toLowerCase())) {
+                eventosPorRegion.add(evento);
+            }
+        }
+        
+        return eventosPorRegion;
+    }
+
     
     
 }

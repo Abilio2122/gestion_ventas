@@ -3,6 +3,8 @@ package gestion_ventas;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.ArrayList;
+import java.util.List;
 import java.io.*;
 
 public class Cliente {
@@ -11,7 +13,8 @@ public class Cliente {
 	private String nombre;
 	private String password;
 	private int edad;
-	
+	 private List<String> historialCompras = new ArrayList<>();;
+
         public Cliente(String rut,String nombre, String password, int edad) {
                 this.rut = rut;
                 this.nombre = nombre;
@@ -82,12 +85,19 @@ public class Cliente {
         	return cliente;
         }
         
-     
+        // acerca de historial de comrpa 
+        
+        public void agregarCompra(String nomE) {
+            historialCompras.add(nomE);
+        }
+
+        
         public String mostrarPerfil() {
             
-        	return "Nombre: " + nombre + "\nRut: " + rut + "\nEdad: " + edad;
-		//Historial de compra
+        	return "Nombre: " + nombre + "\nRut: " + rut + "\nEdad: " + edad + "\nHistorial de compras: " + historialCompras;
         }
         
+        
+
         
 }

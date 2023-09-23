@@ -10,18 +10,25 @@ import java.util.HashMap;
 public class gestionCliente {
     
     private ArrayList<Cliente> listaCliente;
-    
+    private HashMap<String, Cliente> mapaClientesPorRut;
+
     public gestionCliente() {
     	listaCliente = new ArrayList<>();
+    	mapaClientesPorRut = new HashMap<>();
+
     }
     
     // Método para agregar un cliente a la lista
     public void agregarCliente(Cliente cliente) {
         listaCliente.add(cliente);
+        mapaClientesPorRut.put(cliente.getRut(), cliente);
+
     }
 
-    // Método para buscar un cliente por su RUT  //hacer el agregar y buscar por Hashmap RECORDAR!!
-
+    public Cliente buscarClientePorRut(String rut) {
+        return mapaClientesPorRut.get(rut);
+    }
+    
     public void listar() {
     	for(Cliente cliente : listaCliente) {
     		System.out.println(cliente.mostrarPerfil());

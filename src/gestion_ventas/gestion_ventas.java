@@ -2,11 +2,12 @@ package gestion_ventas;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.io.*;
 
 
 public class gestion_ventas {
-    
     
     public static void main(String[] args)throws IOException {
             
@@ -14,7 +15,6 @@ public class gestion_ventas {
         gestionEventos gestionEventos = new gestionEventos();
         gestionEventos.importarEventosDesdeCSV("C:\\Users\\ruben\\git\\gestion_ventas\\Eventos.csv");
         gestionPago gestionPago = new gestionPago();
-        
         
         BufferedReader lector = new BufferedReader(new InputStreamReader(System.in));
 		
@@ -77,8 +77,24 @@ public class gestion_ventas {
                     System.out.println("------------------------------");
                     System.out.println("|           Perfil           |");
                     System.out.println("------------------------------");
-						
-                    gestionCliente.listar();
+					
+                    System.out.println("Ingrese el RUT del cliente que desea buscar:");
+                    String rutABuscar = lector.readLine();
+                    
+                    Cliente clienteEncontrado = gestionCliente.buscarClientePorRut(rutABuscar);
+                    if (clienteEncontrado != null) {
+                        // Cliente encontrado, puedes trabajar con él
+                        System.out.println("Cliente encontrado:");
+                        System.out.println(clienteEncontrado.mostrarPerfil());
+                    } else {
+                        System.out.println("Cliente no encontrado.");
+                    }
+
+
+
+
+
+
                     break;
 					
                 case 2:
@@ -118,7 +134,14 @@ public class gestion_ventas {
                                         
                                         System.out.println("Compra efectuada con éxito!!");
                                         System.out.println("");
+                                        
+                                        //almaceno al cliente su evento en historial compra
+                                        Cliente cliente = (Cliente) gestionCliente.buscarClientePorRut(idPago);
+                                        cliente.agregarCompra(encontrado.getNombreEvento());
                                         break;
+                                        
+                                        // almacenar en historial eventos comprados
+                                     
                                         
                                     case 2:
                                         break;
@@ -153,7 +176,19 @@ public class gestion_ventas {
 				
                     System.out.println("Ingrese la region en la que desea buscar eventos");
                     String reg = lector.readLine();
+                    ArrayList<Eventos> eventos = new ArrayList<>();
+                    eventos = (ArrayList<Eventos>) gestionEventos.obtenerEventosPorRegion(reg);
+                    if (eventos.isEmpty()) {
+                        System.out.println("No se encontraron eventos en la región: " + reg);
+                    } else {
+                        System.out.println("Eventos en la región " + reg + ":");
+                        for (Eventos evento : eventos) {
+                            System.out.println(evento.mostrarEventos());
+                            System.out.println(); // Salto de línea entre eventos
+                        }
+                    }
                     break;
+                    
 					
                 case 5:
                     // Solicitar el "rut" del usuario

@@ -35,6 +35,10 @@ public class Eventos {
             return fechaEvento;
         }
         
+        public String getRegionEvento(){
+            return regionEvento;
+        }
+        
         public int getCantEntradasEvento() {
         	return cantEntradasEvento;
         }
