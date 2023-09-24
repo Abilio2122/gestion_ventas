@@ -8,7 +8,6 @@ import java.util.HashMap;
  * @author karth
  */
 public class gestionCliente {
-    
     private ArrayList<Cliente> listaCliente;
     private HashMap<String, Cliente> mapaClientesPorRut;
 
@@ -34,4 +33,5 @@ public class gestionCliente {
     		System.out.println(cliente.mostrarPerfil());
     	}
     }
+    
 }

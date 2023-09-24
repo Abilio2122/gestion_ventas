@@ -13,8 +13,9 @@ public class gestion_ventas {
             
         gestionCliente gestionCliente = new gestionCliente();
         gestionEventos gestionEventos = new gestionEventos();
-        gestionEventos.importarEventosDesdeCSV("C:\\Users\\ruben\\git\\gestion_ventas\\Eventos.csv");
+        gestionEventos.importarEventosDesdeCSV("C:\\Users\\sebas\\git\\gestion_ventas\\Eventos.csv");//aqui hay que poner la ruta en la que tengan el archivo csv
         gestionPago gestionPago = new gestionPago();
+        Recomendacion recomendador = new Recomendacion();
         
         BufferedReader lector = new BufferedReader(new InputStreamReader(System.in));
 		
@@ -28,7 +29,7 @@ public class gestion_ventas {
         int opc = Integer.parseInt(lector.readLine());
         
         
-        
+        Cliente cliente = null;
         switch (opc) {
 
             case 1:
@@ -68,7 +69,7 @@ public class gestion_ventas {
             
             int opc2 = Integer.parseInt(lector.readLine());
             
-            gestionEventos.agregarEvento(new Eventos("2345","One piece","31 de agosto","Viña del Mar", 1));
+            gestionEventos.agregarEvento(new Eventos("2345","One piece","31 de agosto","Viña del Mar", 1,"1-90"));
 			
             switch(opc2) {
                         
@@ -89,12 +90,6 @@ public class gestion_ventas {
                     } else {
                         System.out.println("Cliente no encontrado.");
                     }
-
-
-
-
-
-
                     break;
 					
                 case 2:
@@ -136,7 +131,7 @@ public class gestion_ventas {
                                         System.out.println("");
                                         
                                         //almaceno al cliente su evento en historial compra
-                                        Cliente cliente = (Cliente) gestionCliente.buscarClientePorRut(idPago);
+                                        cliente = (Cliente) gestionCliente.buscarClientePorRut(idPago);
                                         cliente.agregarCompra(encontrado.getNombreEvento());
                                         break;
                                         
@@ -165,9 +160,9 @@ public class gestion_ventas {
                     System.out.println("------------------------------");
                     System.out.println("|        Recomendaciones     |");
                     System.out.println("------------------------------");
-                    System.out.println("Segun tu edad, estos son los eventos que te recomendamos");
-                    //Deaspues hacemos lo de los rango de edad para las recomendaciones
-                    break;
+	                    System.out.println("Segun tu edad, estos son los eventos que te recomendamos");
+	                    recomendador.recomendacion(cliente, gestionEventos);
+	                    break;
 					
                 case 4:
                     System.out.println("------------------------------");
@@ -223,9 +218,10 @@ public class gestion_ventas {
                             System.out.println("Ingrese la cantidad de entradas que tendrá el evento:");
                             int cantidadEntrada = Integer.parseInt(lector.readLine());
 
-
+                            System.out.println("Ingrese un rango etario (1-100)");
+                            String rangoEtario = lector.readLine();
                             
-                            Eventos nuevoEvento = new Eventos(idEvento,nombreEvento, fechaEvento, regionEvento, cantidadEntrada);
+                            Eventos nuevoEvento = new Eventos(idEvento,nombreEvento, fechaEvento, regionEvento, cantidadEntrada, rangoEtario);
                             gestionEventos.agregarEvento(nuevoEvento);
                             
                             System.out.println("");

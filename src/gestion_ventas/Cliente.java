@@ -9,7 +9,7 @@ import java.io.*;
 
 public class Cliente {
 	
-       private String rut;
+    private String rut;
 	private String nombre;
 	private String password;
 	private int edad;
@@ -22,7 +22,7 @@ public class Cliente {
                 this.edad = edad;
 	}
 	
-        public String getRut() {
+    public String getRut() {
 		return rut;
 	}
        
@@ -57,6 +57,8 @@ public class Cliente {
         public void setEdad(int edad) {
 		this.edad = edad;
 	}
+        
+        
         
         
         public static Cliente registrar() throws IOException{

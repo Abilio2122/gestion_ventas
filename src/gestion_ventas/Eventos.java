@@ -8,16 +8,18 @@ public class Eventos {
     private String fechaEvento;
     private String regionEvento;
     private int cantEntradasEvento;
+    private String rangoEtario;
 
     
     gestionEntradas gestionEntradas = new gestionEntradas();
         
-    public Eventos(String idEvento, String nombreEvento, String fechaEvento, String regionEvento, int cantEntradasEvento) {
+    public Eventos(String idEvento, String nombreEvento, String fechaEvento, String regionEvento, int cantEntradasEvento, String rangoEtario) {
         	this.idEvento=idEvento;
         	this.nombreEvento=nombreEvento;
         	this.fechaEvento=fechaEvento;
             this.regionEvento=regionEvento;
             this.cantEntradasEvento=cantEntradasEvento;
+            this.rangoEtario = rangoEtario;
 	}
 	
     
@@ -65,10 +67,16 @@ public class Eventos {
         	this.cantEntradasEvento = cantEntradasEvento;
         }
         
+        public String getRangoEtario() {
+        	return rangoEtario;
+        }
         
+        public void setRangoEtario(String rangoEtario) {
+        	this.rangoEtario = rangoEtario;
+        }
                
         public String mostrarEventos() {
-        	return "ID: " + idEvento + "\nNombre: " + nombreEvento + "\nFecha: " + fechaEvento + "\nRegion: " + regionEvento;
+        	return "ID: " + idEvento + "\nNombre: " + nombreEvento + "\nFecha: " + fechaEvento + "\nRegion: " + regionEvento + "\nRango Etario: " + rangoEtario;
                 
         }
         

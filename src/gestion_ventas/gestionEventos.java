@@ -13,6 +13,10 @@ public class gestionEventos {
     private HashMap<String,Eventos> mapEventos; 
     
     
+    public ArrayList<Eventos> getListaEventos() {
+        return listaEventos;
+    }
+    
     public gestionEventos() {
     	listaEventos = new ArrayList<Eventos>();
     	mapEventos = new HashMap<String,Eventos>();
@@ -24,13 +28,14 @@ public class gestionEventos {
             br.readLine();
             while ((linea = br.readLine()) != null) {
                 String[] campos = linea.split(",");
-                if (campos.length == 5) { 
+                if (campos.length == 6) { 
                     String idEvento = campos[0];
                     String nombreEvento = campos[1];
                     String fechaEvento = campos[2];
                     String regionEvento = campos[3];
-                    int cantEntradasEvento = Integer.parseInt(campos[4]); // Obtener el número de entradas desde el CSV
-                    Eventos evento = new Eventos(idEvento, nombreEvento, fechaEvento, regionEvento, cantEntradasEvento);
+                    int cantEntradasEvento = Integer.parseInt(campos[4]);
+                    String rangoEtario = campos[5];
+                    Eventos evento = new Eventos(idEvento, nombreEvento, fechaEvento, regionEvento, cantEntradasEvento, rangoEtario);
                     agregarEvento(evento);
                 } else {
                     System.out.println("Error: La línea no tiene el formato esperado.");
@@ -58,8 +63,8 @@ public class gestionEventos {
         }
     }
     //agrega evento de forma manual dando valores detalle por detalle
-    public void agregarEvento(String idEvento, String nombreEvento, String fechaEvento, String regionEvento, int cantidadEntrada) {
-        Eventos nuevoEvento = new Eventos(idEvento, nombreEvento, fechaEvento, regionEvento, cantidadEntrada);
+    public void agregarEvento(String idEvento, String nombreEvento, String fechaEvento, String regionEvento, int cantidadEntrada,String rangoEtario) {
+        Eventos nuevoEvento = new Eventos(idEvento, nombreEvento, fechaEvento, regionEvento, cantidadEntrada,rangoEtario);
         agregarEvento(nuevoEvento);
     }
     
@@ -107,6 +112,4 @@ public class gestionEventos {
         return eventosPorRegion;
     }
 
-    
-    
 }
