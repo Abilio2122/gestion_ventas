@@ -10,10 +10,10 @@ import java.io.*;
 public class gestion_ventas {
     
     public static void main(String[] args)throws IOException {
-    	Admin admin = new Admin("2122", "C:\\Users\\ruben\\git\\gestion_ventas\\Eventos.csv"); // Cambia la contraseña y la ruta del archivo CSV según tus necesidades
+    	Admin admin = new Admin("2122", "C:\\Users\\sebas\\git\\gestion_ventas\\Eventos.csv"); // Cambia la contraseña y la ruta del archivo CSV según tus necesidades
         gestionCliente gestionCliente = new gestionCliente();
         gestionEventos gestionEventos = new gestionEventos();
-        gestionEventos.importarEventosDesdeCSV("C:\\Users\\ruben\\git\\gestion_ventas\\Eventos.csv");//aqui hay que poner la ruta en la que tengan el archivo csv
+        gestionEventos.importarEventosDesdeCSV("C:\\Users\\sebas\\git\\gestion_ventas\\Eventos.csv");//aqui hay que poner la ruta en la que tengan el archivo csv
         gestionPago gestionPago = new gestionPago();
         Recomendacion recomendador = new Recomendacion();
         
@@ -29,11 +29,11 @@ public class gestion_ventas {
         int opc = Integer.parseInt(lector.readLine());
         
         
-        Cliente cliente = null;
+        Cliente nuevoCliente = null;
         switch (opc) {
 
             case 1:
-            	 Cliente nuevoCliente = Cliente.registrar();
+            	 nuevoCliente = Cliente.registrar();
                  gestionCliente.agregarCliente(nuevoCliente);
                  break;
 			
@@ -131,7 +131,7 @@ public class gestion_ventas {
                                         System.out.println("");
                                         
                                         //almaceno al cliente su evento en historial compra
-                                        cliente = (Cliente) gestionCliente.buscarClientePorRut(idPago);
+                                        Cliente cliente = (Cliente) gestionCliente.buscarClientePorRut(idPago);
                                         cliente.agregarCompra(encontrado.getNombreEvento());
                                         break;
                                         
@@ -161,7 +161,7 @@ public class gestion_ventas {
                     System.out.println("|        Recomendaciones     |");
                     System.out.println("------------------------------");
 	                    System.out.println("Segun tu edad, estos son los eventos que te recomendamos");
-	                    recomendador.recomendacion(cliente, gestionEventos);
+	                    recomendador.recomendacion(nuevoCliente, gestionEventos);
 	                    break;
 					
                 case 4:
