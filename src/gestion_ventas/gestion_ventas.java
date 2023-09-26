@@ -10,10 +10,10 @@ import java.io.*;
 public class gestion_ventas {
     
     public static void main(String[] args)throws IOException {
-            
+    	Admin admin = new Admin("2122", "C:\\Users\\ruben\\git\\gestion_ventas\\Eventos.csv"); // Cambia la contraseña y la ruta del archivo CSV según tus necesidades
         gestionCliente gestionCliente = new gestionCliente();
         gestionEventos gestionEventos = new gestionEventos();
-        gestionEventos.importarEventosDesdeCSV("C:\\Users\\sebas\\git\\gestion_ventas\\Eventos.csv");//aqui hay que poner la ruta en la que tengan el archivo csv
+        gestionEventos.importarEventosDesdeCSV("C:\\Users\\ruben\\git\\gestion_ventas\\Eventos.csv");//aqui hay que poner la ruta en la que tengan el archivo csv
         gestionPago gestionPago = new gestionPago();
         Recomendacion recomendador = new Recomendacion();
         
@@ -186,62 +186,38 @@ public class gestion_ventas {
                     
 					
                 case 5:
-                    // Solicitar el "rut" del usuario
-                    System.out.println("Ingrese contrseña de admin:");
-                    try {
-                        String contraIngresado = lector.readLine();
-
-                        // Verificar si el "rut" es válido (por ejemplo, compararlo con un "rut" permitido)
-                        if (contraIngresado.equals("123")) {
-                            // Rut válido, permitir agregar eventos
-                            
-                            System.out.println("Ingrese el id del evento:");
-                            String idEvento = lector.readLine();
-                            
-                            System.out.println("Ingrese el nombre del evento:");
-                            String nombreEvento = lector.readLine();
-
-                            System.out.println("Ingrese la fecha del evento:");
-                            String fechaEvento = lector.readLine();
-
-                            System.out.println("Ingrese la región del evento:");
-                            String regionEvento = lector.readLine();
-                            
-                            String idEntrada =idEvento;
-                            
-                            System.out.println("Ingrese el tipo de evento:");
-                            String typeEvent = lector.readLine();
-                            
-                            System.out.println("Ingrese el precio que tendrá la entrada:");
-                            int precioEntrada = Integer.parseInt(lector.readLine());
-                            
-                            System.out.println("Ingrese la cantidad de entradas que tendrá el evento:");
-                            int cantidadEntrada = Integer.parseInt(lector.readLine());
-
-                            System.out.println("Ingrese un rango etario (1-100)");
-                            String rangoEtario = lector.readLine();
-                            
-                            Eventos nuevoEvento = new Eventos(idEvento,nombreEvento, fechaEvento, regionEvento, cantidadEntrada, rangoEtario);
-                            gestionEventos.agregarEvento(nuevoEvento);
-                            
-                            System.out.println("");
-                            
-                            //Se implentará en un futuro un límite de entradas fijas para un evento//
-                            
-                            Entrada nuevaEntrada = new Entrada(idEntrada,typeEvent,precioEntrada);
-                            nuevoEvento.agregarEntrada(nuevaEntrada);
-
-                            
-                            
-                            
-                        } else {
-                            // Rut no válido, mostrar un mensaje de error
-                            System.out.println("Lo siento, no tiene permiso para agregar eventos.");
-                        }
-                    } catch (IOException e) {
-                        System.err.println("Error al leer la entrada del usuario.");
-                    }                    
+                	// Solicitar la contraseña del administrador
+                    System.out.println("Ingrese contraseña de admin:");
+                    String contrasenaAdmin = lector.readLine();
                     
+                    // Verificar la contraseña del administrador
+                    if (admin.verificarContrasena(contrasenaAdmin)) {
+                        System.out.println("Ingrese el id del evento:");
+                        String idEvento = lector.readLine();
+
+                        System.out.println("Ingrese el nombre del evento:");
+                        String nombreEvento = lector.readLine();
+
+                        System.out.println("Ingrese la fecha del evento:");
+                        String fechaEvento = lector.readLine();
+
+                        System.out.println("Ingrese la región del evento:");
+                        String regionEvento = lector.readLine();
+
+                        System.out.println("Ingrese la cantidad de entradas que tendrá el evento:");
+                        int cantidadEntrada = Integer.parseInt(lector.readLine());
+
+                        System.out.println("Ingrese un rango etario (1-100)");
+                        String rangoEtario = lector.readLine();
+
+                        Eventos nuevoEvento = new Eventos(idEvento, nombreEvento, fechaEvento, regionEvento, cantidadEntrada, rangoEtario);
+                        admin.agregarEvento(nuevoEvento);
+
+                        System.out.println("Evento agregado exitosamente.");
+                    } else {
+                        // Contraseña incorrecta, mostrar un mensaje de error
+                        System.out.println("Contraseña de administrador incorrecta. No tiene permiso para agregar eventos.");
+                    }
                     break;
 				
                 case 6:

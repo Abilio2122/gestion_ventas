@@ -66,6 +66,8 @@ public class gestionEventos {
     public void agregarEvento(String idEvento, String nombreEvento, String fechaEvento, String regionEvento, int cantidadEntrada,String rangoEtario) {
         Eventos nuevoEvento = new Eventos(idEvento, nombreEvento, fechaEvento, regionEvento, cantidadEntrada,rangoEtario);
         agregarEvento(nuevoEvento);
+        
+        
     }
     
     public Eventos buscarEventoPorID(String id) { 
