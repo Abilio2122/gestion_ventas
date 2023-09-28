@@ -13,7 +13,7 @@ public class gestion_ventas {
     	Admin admin = new Admin("2122", "C:\\Users\\sebas\\git\\gestion_ventas\\Eventos.csv"); // Cambia la contraseña y la ruta del archivo CSV según tus necesidades
         gestionCliente gestionCliente = new gestionCliente();
         gestionEventos gestionEventos = new gestionEventos();
-        gestionEventos.importarEventosDesdeCSV("C:\\Users\\sebas\\git\\gestion_ventas\\Eventos.csv");//aqui hay que poner la ruta en la que tengan el archivo csv
+        gestionEventos.importarEventosDesdeCSV("D:\\karth\\Documentos\\GitHub\\gestion_ventas\\Eventos.csv");//aqui hay que poner la ruta en la que tengan el archivo csv
         gestionPago gestionPago = new gestionPago();
         Recomendacion recomendador = new Recomendacion();
         

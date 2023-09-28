@@ -21,14 +21,15 @@ public class gestionEventos {
     	listaEventos = new ArrayList<Eventos>();
     	mapEventos = new HashMap<String,Eventos>();
     }
-    
+
     public void importarEventosDesdeCSV(String archivoCSV) {
         try (BufferedReader br = new BufferedReader(new FileReader(archivoCSV))) {
             String linea;
+            int numeroLinea = 1; // Variable para rastrear el número de línea
             br.readLine();
             while ((linea = br.readLine()) != null) {
                 String[] campos = linea.split(",");
-                if (campos.length == 6) { 
+                if (campos.length == 6) {
                     String idEvento = campos[0];
                     String nombreEvento = campos[1];
                     String fechaEvento = campos[2];
@@ -38,15 +39,15 @@ public class gestionEventos {
                     Eventos evento = new Eventos(idEvento, nombreEvento, fechaEvento, regionEvento, cantEntradasEvento, rangoEtario);
                     agregarEvento(evento);
                 } else {
-                    System.out.println("Error: La línea no tiene el formato esperado.");
+                    System.out.println("Error en la línea " + numeroLinea + ": La línea no tiene el formato esperado.");
                 }
+                numeroLinea++;
             }
         } catch (IOException e) {
             System.out.println("Error al importar eventos desde el archivo CSV: " + e.getMessage());
         }
     }
 
-    
     
     // agregar evento con una variable de tipo evento
     public void agregarEvento(Eventos evento) {
