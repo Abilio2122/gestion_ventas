@@ -2,9 +2,12 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package gestion_ventas;
+package Ventanas;
 
 import javax.swing.JOptionPane;
+import javax.swing.GroupLayout.Alignment;
+import javax.swing.LayoutStyle.ComponentPlacement;
+import javax.swing.JLabel;
 
 /**
  *
@@ -36,7 +39,6 @@ public class MenuInicio extends javax.swing.JFrame {
         jMenu4 = new javax.swing.JMenu();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
-        jTextField2 = new javax.swing.JTextField();
 
         jMenu1.setText("jMenu1");
 
@@ -63,36 +65,35 @@ public class MenuInicio extends javax.swing.JFrame {
                 jButton2ActionPerformed(evt);
             }
         });
-
-        jTextField2.setText(" EventSales Pro");
+        
+        lblNewLabel = new JLabel("EventSales Pro");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(45, 45, 45)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jButton1)
-                            .addComponent(jButton2)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(167, 167, 167)
-                        .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(153, Short.MAX_VALUE))
+        	layout.createParallelGroup(Alignment.LEADING)
+        		.addGroup(layout.createSequentialGroup()
+        			.addGap(119)
+        			.addComponent(lblNewLabel)
+        			.addContainerGap(135, Short.MAX_VALUE))
+        		.addGroup(layout.createSequentialGroup()
+        			.addGap(33)
+        			.addGroup(layout.createParallelGroup(Alignment.LEADING)
+        				.addComponent(jButton1)
+        				.addComponent(jButton2))
+        			.addContainerGap(206, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(38, 38, 38)
-                .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(63, 63, 63)
-                .addComponent(jButton2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 80, Short.MAX_VALUE)
-                .addComponent(jButton1)
-                .addGap(49, 49, 49))
+        	layout.createParallelGroup(Alignment.TRAILING)
+        		.addGroup(Alignment.LEADING, layout.createSequentialGroup()
+        			.addGap(24)
+        			.addComponent(lblNewLabel)
+        			.addGap(49)
+        			.addComponent(jButton2)
+        			.addGap(76)
+        			.addComponent(jButton1)
+        			.addContainerGap(87, Short.MAX_VALUE))
         );
+        getContentPane().setLayout(layout);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -101,17 +102,14 @@ public class MenuInicio extends javax.swing.JFrame {
         JOptionPane.showMessageDialog(this, "Muchas Gracias Por Preferirnos");
 
     
-    System.exit(0);
+        System.exit(0);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        /*String nombre = jTextFieldNombre.getText(); 
-        int edad = Integer.parseInt(jTextFieldEdad.getText()); 
-        String rut = jTextFieldRut.getText(); 
-        String password = jTextFieldPassword.getText();*/
-    
-    
-        //Cliente cliente = new Cliente(rut,nombre,password,edad);
+        MenuRegistrarse menuRegisrarse = new MenuRegistrarse();
+        menuRegisrarse.setVisible(true);
+        this.dispose();
+        
     }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
@@ -158,6 +156,6 @@ public class MenuInicio extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu3;
     private javax.swing.JMenu jMenu4;
     private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JTextField jTextField2;
+    private JLabel lblNewLabel;
     // End of variables declaration//GEN-END:variables
 }
