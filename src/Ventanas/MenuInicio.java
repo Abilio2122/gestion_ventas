@@ -5,16 +5,16 @@
 package Ventanas;
 
 import javax.swing.JOptionPane;
+import gestion_ventas.*;
 import javax.swing.GroupLayout.Alignment;
 import javax.swing.LayoutStyle.ComponentPlacement;
 import javax.swing.JLabel;
-
 /**
  *
  * @author karth
  */
 public class MenuInicio extends javax.swing.JFrame {
-
+	
     /**
      * Creates new form MenuInicio2
      */

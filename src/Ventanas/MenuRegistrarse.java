@@ -3,29 +3,31 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/Application.java to edit this template
  */
 package Ventanas;
-package java.gestion_ventas;
-import java.gestion_ventas.*;
-import javax.swing.AbstractAction;
 import java.awt.event.ActionEvent;
+import java.io.IOException;
+
+import gestion_ventas.*;
+import javax.swing.AbstractAction;
 import javax.swing.Action;
-import javax.swing.GroupLayout.Alignment;
 import javax.swing.GroupLayout;
+import javax.swing.GroupLayout.Alignment;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 import javax.swing.LayoutStyle.ComponentPlacement;
 import javax.swing.SwingConstants;
-import javax.swing.JPasswordField;
-import javax.swing.JLabel;
 
 /**
  *
  * @author karth
  */
 public class MenuRegistrarse extends javax.swing.JFrame {
-
+	gestionCliente hola = new gestionCliente();
     /**
      * Creates new form MenuRegistrarse
      */
-    public MenuRegistrarse() {
+    public MenuRegistrarse() {//CONSTRUCTOOOR!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
         initComponents();
     }
 
@@ -44,7 +46,12 @@ public class MenuRegistrarse extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         Registrarse.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                try {
+					jButton1ActionPerformed(evt,txtNombre,txtEdad,txtRut,passwordField);
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
             }
         });
         
@@ -132,8 +139,29 @@ public class MenuRegistrarse extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt, JTextField txtNombre,JTextField txtEdad, JTextField txtRut, JPasswordField passwordField)throws IOException {//GEN-FIRST:event_jButton1ActionPerformed
+    	String nombre = txtNombre.getText();
+    	String rut = txtRut.getText();
+    	String password = new String(passwordField.getPassword());
+    	
+    	int edad;
+        try {
+            edad = Integer.parseInt(txtEdad.getText());
+        } catch (NumberFormatException e) {
+            // Maneja la excepción en caso de que la edad no sea un número válido
+            JOptionPane.showMessageDialog(this, "Edad no válida", "Error", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+    	
+    	Cliente cliente = new Cliente(rut,nombre,password,edad);;
+    	hola.agregarCliente(cliente);
+    	String mensaje = "Cliente agregado:\n" +
+                "Nombre: " + cliente.getNombre() + "\n" +
+                "RUT: " + cliente.getRut() + "\n" +
+                "Edad: " + cliente.getEdad();
+
+        JOptionPane.showMessageDialog(this, mensaje, "Cliente Agregado", JOptionPane.INFORMATION_MESSAGE);
+    
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
