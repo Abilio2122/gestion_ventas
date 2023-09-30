@@ -86,22 +86,21 @@ public class Eventos {
         
         
         public boolean verificarLimiteEntradaEvento() {
-            try {
-                if (cantEntradasEvento > 0) {
-                    cantEntradasEvento--;
-                    System.out.println("Ingreso Para compra de entrada exitoso!.");
-                    System.out.println("");
-                    return true;
-                } else {
-                    System.out.println("Lamentamos decirle que no quedan entradas para este evento.");
-                    System.out.println("");
-                    return false;
-                }
-            } catch (Exception e) {
-                System.out.println("Error al verificar la disponibilidad de entradas: " + e.getMessage());
-                System.out.println("");
-                return false;
-            }
+        	try {
+        	    if (cantEntradasEvento > 0) {
+        	        cantEntradasEvento--;
+        	        System.out.println("Ingreso Para compra de entrada exitoso!.");
+        	        System.out.println("");
+        	        return true;
+        	    } else {
+        	        throw new excepcionPersonalizada("Lamentamos decirle que no quedan entradas para este evento.");
+        	    }
+        	} catch (excepcionPersonalizada e) {
+        	    System.out.println("Error al verificar la disponibilidad de entradas: " + e.getMessage());
+        	    System.out.println("");
+        	    return false;
+        	}
+
         }
 
 }

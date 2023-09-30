@@ -13,17 +13,18 @@ private ArrayList<Entrada> listaEntradas;
     }
     
     public void agregarEntrada(Entrada entrada) {
-        try {
-            if (!mapEntradas.containsKey(entrada.getIdEntrada())) {
-                listaEntradas.add(entrada);
-                mapEntradas.put(entrada.getIdEntrada(), entrada);
-                System.out.println("Entrada agregada correctamente.");
-            } else {
-                throw new Exception("Ya existe esta entrada o la ID fue mal ingresada.");
-            }
-        } catch (Exception e) {
-            System.out.println("Error: " + e.getMessage());
-        }
+    	try {
+    	    if (!mapEntradas.containsKey(entrada.getIdEntrada())) {
+    	        listaEntradas.add(entrada);
+    	        mapEntradas.put(entrada.getIdEntrada(), entrada);
+    	        System.out.println("Entrada agregada correctamente.");
+    	    } else {
+    	        throw new excepcionPersonalizada("Ya existe esta entrada o la ID fue mal ingresada.");
+    	    }
+    	} catch (excepcionPersonalizada e) {
+    	    System.out.println("Error: " + e.getMessage());
+    	}
+
     }
     
     

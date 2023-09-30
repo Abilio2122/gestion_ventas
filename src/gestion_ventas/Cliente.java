@@ -79,8 +79,20 @@ public class Cliente {
     		String rut = lector.readLine();
     		System.out.println("");
     		
-    		System.out.println("Contraseña");
-    		String password = lector.readLine();
+    		String password = null;
+    		
+    		
+    		do {
+                try {
+                    System.out.println("Contraseña");
+                    password = lector.readLine();
+
+                    excepcionPersonalizada.verificarContraseña(password);
+
+                } catch (excepcionPersonalizada e) {
+                    System.out.println(e.getMessage());
+                }
+            } while (password.length() < 2);
     		System.out.println("");
     		
     		Cliente cliente = new Cliente(rut,nombre,password,edad);

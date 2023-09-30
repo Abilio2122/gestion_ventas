@@ -22,7 +22,7 @@ public class gestionPago {
       
         //Funcion efectuarPago, aún falta por ver.
     
-    public void efectuarPago(String idPago)throws IOException{
+    public void efectuarPago(String idPago)throws excepcionPersonalizada{
         System.out.println("Elige un metodo de pago:");
         System.out.println("");
         for (int i = 0; i < metodosDePago.size(); i++) {
@@ -46,14 +46,15 @@ public class gestionPago {
                 
                 listaPago.add(nuevoPago);
                 
-                
             } else {
                 System.out.println("Ha cancelado");
-                
             }
         } catch (NumberFormatException e) {
             System.out.println("Ingresa un número válido.");
-        }
+        } catch (IOException e) {
+			e.printStackTrace();
+		}
+
         
         
         

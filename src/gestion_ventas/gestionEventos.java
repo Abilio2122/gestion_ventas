@@ -4,8 +4,6 @@ package gestion_ventas;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.io.*;
-import java.io.BufferedReader;
-import java.io.FileReader;
 
 public class gestionEventos {
     
@@ -23,45 +21,49 @@ public class gestionEventos {
     }
 
     public void importarEventosDesdeCSV(String archivoCSV) {
-        try (BufferedReader br = new BufferedReader(new FileReader(archivoCSV))) {
-            String linea;
-            int numeroLinea = 1; // Variable para rastrear el número de línea
-            br.readLine();
-            while ((linea = br.readLine()) != null) {
-                String[] campos = linea.split(",");
-                if (campos.length == 6) {
-                    String idEvento = campos[0];
-                    String nombreEvento = campos[1];
-                    String fechaEvento = campos[2];
-                    String regionEvento = campos[3];
-                    int cantEntradasEvento = Integer.parseInt(campos[4]);
-                    String rangoEtario = campos[5];
-                    Eventos evento = new Eventos(idEvento, nombreEvento, fechaEvento, regionEvento, cantEntradasEvento, rangoEtario);
-                    agregarEvento(evento);
-                } else {
-                    System.out.println("Error en la línea " + numeroLinea + ": La línea no tiene el formato esperado.");
-                }
-                numeroLinea++;
-            }
-        } catch (IOException e) {
-            System.out.println("Error al importar eventos desde el archivo CSV: " + e.getMessage());
-        }
+    	try (BufferedReader br = new BufferedReader(new FileReader(archivoCSV))) {
+    	    String linea;
+    	    int numeroLinea = 1; // Variable para rastrear el número de línea
+    	    br.readLine();
+    	    while ((linea = br.readLine()) != null) {
+    	        String[] campos = linea.split(",");
+    	        if (campos.length == 6) {
+    	            String idEvento = campos[0];
+    	            String nombreEvento = campos[1];
+    	            String fechaEvento = campos[2];
+    	            String regionEvento = campos[3];
+    	            int cantEntradasEvento = Integer.parseInt(campos[4]);
+    	            String rangoEtario = campos[5];
+    	            Eventos evento = new Eventos(idEvento, nombreEvento, fechaEvento, regionEvento, cantEntradasEvento, rangoEtario);
+    	            agregarEvento(evento);
+    	        } else {
+    	            throw new excepcionPersonalizada("Error en la línea " + numeroLinea + ": La línea no tiene el formato esperado.");
+    	        }
+    	        numeroLinea++;
+    	    }
+    	} catch (excepcionPersonalizada e) {
+    	    System.out.println("Error en la importación CSV: " + e.getMessage());
+    	} catch (IOException e) {
+			e.printStackTrace();
+		}
+
     }
 
     
     // agregar evento con una variable de tipo evento
     public void agregarEvento(Eventos evento) {
-        try {
-            if (!mapEventos.containsKey(evento.getIdEvento())) {
-                listaEventos.add(evento);
-                mapEventos.put(evento.getIdEvento(), evento);
-                //System.out.println("Evento agregado correctamente.");
-            } else {
-                //throw new Exception("Ya existe este evento o la Id fue mal ingresada.");
-            }
-        } catch (Exception e) {
-            System.out.println("Error: " + e.getMessage());
-        }
+    	try {
+    	    if (!mapEventos.containsKey(evento.getIdEvento())) {
+    	        listaEventos.add(evento);
+    	        mapEventos.put(evento.getIdEvento(), evento);
+    	        System.out.println("Evento agregado correctamente.");
+    	    } else {
+    	        throw new excepcionPersonalizada("Ya existe este evento o la ID fue mal ingresada.");
+    	    }
+    	} catch (excepcionPersonalizada e) {
+    	    System.out.println("Error: " + e.getMessage());
+    	}
+
     }
     //agrega evento de forma manual dando valores detalle por detalle
     public void agregarEvento(String idEvento, String nombreEvento, String fechaEvento, String regionEvento, int cantidadEntrada,String rangoEtario) {
@@ -80,17 +82,18 @@ public class gestionEventos {
     
     
     public void eliminarEvento(String idEvento) {
-        try {
-            if (mapEventos.containsKey(idEvento)) {
-                Eventos elimina3 = mapEventos.remove(idEvento);
-                listaEventos.remove(elimina3);
-                System.out.println("Evento eliminado correctamente.");
-            } else {
-                throw new Exception("El evento con ID " + idEvento + " no existe.");
-            }
-        } catch (Exception e) {
-            System.out.println("Error: " + e.getMessage());
-        }
+    	try {
+    	    if (mapEventos.containsKey(idEvento)) {
+    	        Eventos elimina3 = mapEventos.remove(idEvento);
+    	        listaEventos.remove(elimina3);
+    	        System.out.println("Evento eliminado correctamente.");
+    	    } else {
+    	        throw new excepcionPersonalizada("El evento con ID " + idEvento + " no existe.");
+    	    }
+    	} catch (excepcionPersonalizada e) {
+    	    System.out.println("Error: " + e.getMessage());
+    	}
+
     }
     
     public void listarEventos() {
