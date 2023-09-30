@@ -83,22 +83,26 @@ public class Cliente {
     		
     		
     		do {
-                try {
-                    System.out.println("Contraseña");
-                    password = lector.readLine();
+    		    try {
+    		        System.out.println("Contraseña");
+    		        password = lector.readLine();
 
-                    excepcionPersonalizada.verificarContraseña(password);
+    		        if (password != null) {
+    		            throw new contrasenaInvalida(password);
+    		        }
 
-                } catch (excepcionPersonalizada e) {
-                    System.out.println(e.getMessage());
-                }
-            } while (password.length() < 2);
+    		    } catch (contrasenaInvalida e) {
+    		        System.out.println(e.getMessage());
+    		    }
+    		} while (password != null && password.length() < 2);
+
+
     		System.out.println("");
-    		
-    		Cliente cliente = new Cliente(rut,nombre,password,edad);
-        	return cliente;
+
+    		Cliente cliente = new Cliente(rut, nombre, password, edad);
+    		return cliente;
+
         }
-        
         // acerca de historial de comrpa 
         
         public void agregarCompra(String nomE) {

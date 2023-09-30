@@ -131,9 +131,7 @@ public class gestion_ventas {
                                         //almaceno al cliente su evento en historial compra
                                         Cliente cliente = (Cliente) gestionCliente.buscarClientePorRut(idPago);
                                         cliente.agregarCompra(encontrado.getNombreEvento());
-                                        break;
-                                        
-                                        // almacenar en historial eventos comprados
+                                        break;   
                                      
                                         
                                     case 2:
