@@ -92,7 +92,15 @@ public class MenuPrincipal extends JFrame {
         btnNewButton_1.setBounds(10, 45, 89, 23);
         contentPane.add(btnNewButton_1);
         
-        JButton btnNewButton_2 = new JButton("Ver Eventos DIsponibles");
+        JButton btnNewButton_2 = new JButton("Ver Eventos Disponibles");
+        btnNewButton_2.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                // Abre la ventana VerCsv y cierra la ventana actual
+                VerCsv ver = new VerCsv();
+                ver.setVisible(true);
+                dispose();
+            }
+        });
         btnNewButton_2.setBounds(10, 79, 149, 23);
         contentPane.add(btnNewButton_2);
         
