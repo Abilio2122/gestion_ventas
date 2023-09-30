@@ -9,6 +9,7 @@ import gestion_ventas.*;
 import javax.swing.GroupLayout.Alignment;
 import javax.swing.LayoutStyle.ComponentPlacement;
 import javax.swing.JLabel;
+import java.awt.Font;
 /**
  *
  * @author karth
@@ -67,6 +68,7 @@ public class MenuInicio extends javax.swing.JFrame {
         });
         
         lblNewLabel = new JLabel("EventSales Pro");
+        lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 14));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         layout.setHorizontalGroup(

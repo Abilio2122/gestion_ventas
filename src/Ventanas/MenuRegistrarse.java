@@ -17,6 +17,7 @@ import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 import javax.swing.LayoutStyle.ComponentPlacement;
 import javax.swing.SwingConstants;
+import java.awt.Font;
 
 /**
  *
@@ -76,6 +77,7 @@ public class MenuRegistrarse extends javax.swing.JFrame {
         passwordField = new JPasswordField();
         
         lblNewLabel_4 = new JLabel("EventSales Pro");
+        lblNewLabel_4.setFont(new Font("Tahoma", Font.PLAIN, 14));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         layout.setHorizontalGroup(
@@ -161,6 +163,10 @@ public class MenuRegistrarse extends javax.swing.JFrame {
                 "Edad: " + cliente.getEdad();
 
         JOptionPane.showMessageDialog(this, mensaje, "Cliente Agregado", JOptionPane.INFORMATION_MESSAGE);
+        
+        MenuPrincipal menuPrincipal = new MenuPrincipal();
+        menuPrincipal.setVisible(true);
+        this.dispose();
     
     }//GEN-LAST:event_jButton1ActionPerformed
 
