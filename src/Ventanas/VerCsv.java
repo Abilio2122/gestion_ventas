@@ -67,12 +67,12 @@ public class VerCsv extends JFrame {
 
         
         textField = new JTextField();
-        textField.setBounds(310, 360, 100, 20);
+        textField.setBounds(243, 360, 100, 20);
         contentPane.add(textField);
 
         
         JButton btnConfirmar = new JButton("Confirmar");
-        btnConfirmar.setBounds(420, 360, 100, 20);
+        btnConfirmar.setBounds(353, 361, 100, 20);
         contentPane.add(btnConfirmar);
 
         
