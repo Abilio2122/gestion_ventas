@@ -1,66 +1,100 @@
-    package Ventanas;
+package Ventanas;
 
-import javax.swing.*;
+import java.awt.EventQueue;
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.JTable;
+import javax.swing.border.EmptyBorder;
 import javax.swing.table.DefaultTableModel;
-import java.awt.*;
+import javax.swing.JLabel;
+import javax.swing.JTextField;
+import javax.swing.JButton;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class VerCsv extends JFrame {
-    
-	public VerCsv() {
-        // Definir los títulos de las columnas
-        String[] columnas = {"ID", "Nombre", "Fecha", "Región", "Entradas Disponibles", "Rango Etario"};
 
-        // Crear un modelo de tabla con las columnas especificadas
-        DefaultTableModel modelo = new DefaultTableModel(columnas, 0); // 0 filas inicialmente
+    private static final long serialVersionUID = 1L;
+    private JPanel contentPane;
+    private JTable table;
+    private JTextField textField;
 
-        // Crear la tabla con el modelo de datos
-        JTable tabla = new JTable(modelo);
-
-        // Agregar la tabla a un panel con barra de desplazamiento
-        JScrollPane scrollPane = new JScrollPane(tabla);
-
-        // Configurar el tamaño de la ventana
-        setSize(800, 551);
-
-        // Configurar la operación de cierre de la ventana
-        setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-
-        // Configurar la ubicación de la ventana (opcional)
-        setLocationRelativeTo(null);
-
-        // Crear un panel para los elementos de entrada
-        JPanel inputPanel = new JPanel();
-        
-        // Agregar un campo de texto para ingresar la ID del evento
-        JTextField idEventoTextField = new JTextField(10);
-
-		inputPanel.add(new JLabel("Ingrese la ID del evento al que desea asistir:"));
-        inputPanel.add(idEventoTextField);
-        
-        // Botón para ingresar
-        JButton ingresarButton = new JButton("Ingresar");
-        ingresarButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                String idEvento = idEventoTextField.getText();
-                // Aquí puedes realizar acciones basadas en la ID del evento ingresada
-                System.out.println("ID del evento ingresada: " + idEvento);
-                // Puedes agregar lógica adicional aquí
+    /**
+     * Launch the application.
+     */
+    public static void main(String[] args) {
+        EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                try {
+                    VerCsv frame = new VerCsv();
+                    frame.setVisible(true);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
             }
         });
-        inputPanel.add(ingresarButton);
-
-        // Configurar el gestor de diseño de la ventana (BorderLayout)
-        setLayout(new BorderLayout());
-
-        // Agregar el panel de tabla al centro de la ventana
-        add(scrollPane, BorderLayout.CENTER);
-        
-        // Agregar el panel de entrada de texto en la parte inferior de la ventana
-        add(inputPanel, BorderLayout.SOUTH);
     }
 
-    // Otros métodos y lógica específica de VerCsv si es necesario
+    /**
+     * Create the frame.
+     */
+    public VerCsv() {
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setBounds(100, 100, 800, 500); // 
+        contentPane = new JPanel();
+        contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+        setContentPane(contentPane);
+        contentPane.setLayout(null); // 
+
+        
+        String[] columnNames = {"ID", "Nombre", "Fecha", "Región", "Entradas Disponibles", "Rango Etario"};
+
+      
+        Object[][] data = new Object[20][6];
+
+       
+        DefaultTableModel model = new DefaultTableModel(data, columnNames);
+        table = new JTable(model);
+        JScrollPane scrollPane = new JScrollPane(table);
+        scrollPane.setBounds(10, 10, 760, 340); 
+        contentPane.add(scrollPane);
+
+        
+        JLabel lblMensaje = new JLabel("Ingrese la ID del evento al que desea asistir:");
+        lblMensaje.setBounds(10, 360, 300, 20);
+        contentPane.add(lblMensaje);
+
+        
+        textField = new JTextField();
+        textField.setBounds(310, 360, 100, 20);
+        contentPane.add(textField);
+
+        
+        JButton btnConfirmar = new JButton("Confirmar");
+        btnConfirmar.setBounds(420, 360, 100, 20);
+        contentPane.add(btnConfirmar);
+
+        
+        btnConfirmar.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                
+                String idIngresada = textField.getText();
+                
+            }
+        });
+
+       
+        JButton btnVolver = new JButton("Volver");
+        btnVolver.setBounds(530, 360, 100, 20);
+        contentPane.add(btnVolver);
+
+        
+        btnVolver.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                
+                dispose();
+            }
+        });
+    }
 }
