@@ -24,7 +24,7 @@ import java.awt.Font;
  * @author karth
  */
 public class MenuRegistrarse extends javax.swing.JFrame {
-	gestionCliente hola = new gestionCliente();
+	gestionCliente gestionCliente = new gestionCliente();
     /**
      * Creates new form MenuRegistrarse
      */
@@ -156,15 +156,15 @@ public class MenuRegistrarse extends javax.swing.JFrame {
         }
     	
     	Cliente cliente = new Cliente(rut,nombre,password,edad);;
-    	hola.agregarCliente(cliente);
+    	gestionCliente.agregarCliente(cliente);
     	String mensaje = "Cliente agregado:\n" +
                 "Nombre: " + cliente.getNombre() + "\n" +
                 "RUT: " + cliente.getRut() + "\n" +
                 "Edad: " + cliente.getEdad();
 
-        JOptionPane.showMessageDialog(this, mensaje, "Cliente Agregado", JOptionPane.INFORMATION_MESSAGE);
+        //JOptionPane.showMessageDialog(this, mensaje, "Cliente Agregado", JOptionPane.INFORMATION_MESSAGE);  // Muestra si se agrego con exito el cliente.
         
-        MenuPrincipal menuPrincipal = new MenuPrincipal();
+        MenuPrincipal menuPrincipal = new MenuPrincipal(cliente, gestionCliente);
         menuPrincipal.setVisible(true);
         this.dispose();
     

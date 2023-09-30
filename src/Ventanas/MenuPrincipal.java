@@ -5,6 +5,10 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
+import gestion_ventas.Cliente;
+import gestion_ventas.gestionCliente;
+
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
@@ -16,9 +20,11 @@ import java.awt.event.ActionEvent;
 
 public class MenuPrincipal extends JFrame {
 
+	
     private static final long serialVersionUID = 1L;
     private JPanel contentPane;
-
+    private Cliente cliente;
+    private gestionCliente gestionCliente;
     /**
      * Launch the application.
      */
@@ -26,7 +32,7 @@ public class MenuPrincipal extends JFrame {
         EventQueue.invokeLater(new Runnable() {
             public void run() {
                 try {
-                    MenuPrincipal frame = new MenuPrincipal();
+                    MenuPrincipal frame = new MenuPrincipal(null, null);
                     frame.setVisible(true);
                 } catch (Exception e) {
                     e.printStackTrace();
@@ -34,11 +40,14 @@ public class MenuPrincipal extends JFrame {
             }
         });
     }
-
+    
     /**
      * Create the frame.
      */
-    public MenuPrincipal() {
+    public MenuPrincipal(Cliente cliente, gestionCliente gestionCliente) {
+    	this.cliente = cliente;
+    	this.gestionCliente = gestionCliente;
+    	
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setBounds(100, 100, 450, 300);
         contentPane = new JPanel();
@@ -69,9 +78,17 @@ public class MenuPrincipal extends JFrame {
         
         JButton btnNewButton_1 = new JButton("Ver Perfil");
         btnNewButton_1.addActionListener(new ActionListener() {
-        	public void actionPerformed(ActionEvent e) {
-        	}
+            public void actionPerformed(ActionEvent e) {
+                if (cliente != null && cliente.getNombre() != null && !cliente.getNombre().isEmpty() &&
+                    cliente.getRut() != null && !cliente.getRut().isEmpty() && cliente.getEdad() > 0) {
+                    String mensaje = cliente.mostrarPerfil();
+                    JOptionPane.showMessageDialog(null, mensaje, "Perfil del Cliente", JOptionPane.INFORMATION_MESSAGE);
+                } else {
+                    JOptionPane.showMessageDialog(null, "Los datos del cliente no se cargaron correctamente", "Error", JOptionPane.ERROR_MESSAGE);
+                }
+            }
         });
+
         btnNewButton_1.setBounds(10, 45, 89, 23);
         contentPane.add(btnNewButton_1);
         
@@ -91,4 +108,5 @@ public class MenuPrincipal extends JFrame {
         btnNewButton_5.setBounds(10, 181, 89, 23);
         contentPane.add(btnNewButton_5);
     }
+
 }

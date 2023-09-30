@@ -9,7 +9,7 @@ import java.io.*;
 
 public class gestion_ventas {
     
-    public static void main(String[] args)throws IOException {
+    public static void main(String[] args)throws IOException, excepcionPersonalizada {
     	Admin admin = new Admin("2122", "C:\\Users\\sebas\\git\\gestion_ventas\\Eventos.csv"); // Cambia la contraseña y la ruta del archivo CSV según tus necesidades
         gestionCliente gestionCliente = new gestionCliente();
         gestionEventos gestionEventos = new gestionEventos();
@@ -79,10 +79,8 @@ public class gestion_ventas {
                     System.out.println("|           Perfil           |");
                     System.out.println("------------------------------");
 					
-                    System.out.println("Ingrese el RUT del cliente que desea buscar:");
-                    String rutABuscar = lector.readLine();
                     
-                    Cliente clienteEncontrado = gestionCliente.buscarClientePorRut(rutABuscar);
+                    Cliente clienteEncontrado = gestionCliente.buscarClientePorRut(nuevoCliente.getRut());
                     if (clienteEncontrado != null) {
                         // Cliente encontrado, puedes trabajar con él
                         System.out.println("Cliente encontrado:");
