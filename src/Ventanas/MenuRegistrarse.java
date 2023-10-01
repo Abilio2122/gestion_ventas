@@ -162,7 +162,7 @@ public class MenuRegistrarse extends javax.swing.JFrame {
                 "RUT: " + cliente.getRut() + "\n" +
                 "Edad: " + cliente.getEdad();
 
-        //JOptionPane.showMessageDialog(this, mensaje, "Cliente Agregado", JOptionPane.INFORMATION_MESSAGE);  // Muestra si se agrego con exito el cliente.
+        JOptionPane.showMessageDialog(this, mensaje, "Cliente Agregado", JOptionPane.INFORMATION_MESSAGE);  // Muestra si se agrego con exito el cliente.
         
         MenuPrincipal menuPrincipal = new MenuPrincipal(cliente, gestionCliente);
         menuPrincipal.setVisible(true);
