@@ -95,10 +95,25 @@ public class MenuPrincipal extends javax.swing.JFrame {
         contentPane.add(btnNewButton_2);
 
         JButton btnNewButton_3 = new JButton("Recomendaciones");
+        btnNewButton_3.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                // Abre la ventana de Recomendación
+                Recomendacion recomendacion = new Recomendacion();
+                recomendacion.setVisible(true);
+            }
+        });
         btnNewButton_3.setBounds(10, 113, 132, 23);
         contentPane.add(btnNewButton_3);
 
         JButton btnNewButton_4 = new JButton("Ver Regiones");
+        btnNewButton_4.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                // Abre la ventana de Ver Región
+                VerRegion verRegion = new VerRegion();
+                verRegion.setVisible(true);
+            }
+        });
+        
         btnNewButton_4.setBounds(10, 147, 105, 23);
         contentPane.add(btnNewButton_4);
 
