@@ -13,7 +13,7 @@ public class Cliente {
 	private String password;
 	private int edad;
 	private List<String> historialCompras;
-    private ArrayList<Eventos> listaEventos;
+        private ArrayList<Eventos> listaEventos;
 
         public Cliente(String rut,String nombre, String password, int edad) {
                 this.rut = rut;
