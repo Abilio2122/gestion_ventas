@@ -10,11 +10,12 @@ import gestion_ventas.*;
  * @author sebas
  */
 public class Administrador extends javax.swing.JFrame {
-
+    private MenuPrincipal menuPrincipal;
     /**
      * Creates new form Admin
      */
     public Administrador() {
+        this.menuPrincipal = menuPrincipal;
         initComponents();
     }
 
@@ -162,12 +163,9 @@ public class Administrador extends javax.swing.JFrame {
 
         // Cierra la ventana actual (Administrador)
         this.dispose();
-
-        // Crea e muestra la ventana MenuPrincipal
-        MenuPrincipal menuPrincipal = new MenuPrincipal();
-        menuPrincipal.setVisible(true);
     }//GEN-LAST:event_jToggleButton1ActionPerformed
 
+    
     /**
      * @param args the command line arguments
      */
@@ -198,10 +196,10 @@ public class Administrador extends javax.swing.JFrame {
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new Administrador().setVisible(true);
-            }
-        });
+        public void run() {
+            new Administrador().setVisible(true);
+        }
+    });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
