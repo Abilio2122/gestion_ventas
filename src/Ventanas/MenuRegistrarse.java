@@ -28,7 +28,7 @@ public class MenuRegistrarse extends javax.swing.JFrame {
     /**
      * Creates new form MenuRegistrarse
      */
-    public MenuRegistrarse() {//CONSTRUCTOOOR!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+    public MenuRegistrarse() {
         initComponents();
     }
 
