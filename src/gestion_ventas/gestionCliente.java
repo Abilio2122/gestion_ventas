@@ -30,7 +30,7 @@ public class gestionCliente {
     
     public void listar() {
     	for(Cliente cliente : listaCliente) {
-    		System.out.println(cliente.mostrarPerfil());
+    		System.out.println(cliente.mostrarPerfil() + "\n\n");  
     	}
     }
     
