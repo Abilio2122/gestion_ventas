@@ -103,6 +103,14 @@ public class MenuPrincipal extends javax.swing.JFrame {
         contentPane.add(btnNewButton_4);
 
         JButton btnNewButton_5 = new JButton("Admin");
+        
+        btnNewButton_5.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                AdminPS adminPS = new AdminPS();
+                adminPS.setVisible(true);
+            }
+        });
+        
         btnNewButton_5.setBounds(10, 181, 89, 23);
         contentPane.add(btnNewButton_5);
     }
