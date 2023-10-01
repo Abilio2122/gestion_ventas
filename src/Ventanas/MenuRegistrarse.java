@@ -143,10 +143,10 @@ public class MenuRegistrarse extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt, JTextField txtNombre,JTextField txtEdad, JTextField txtRut, JPasswordField passwordField)throws IOException {//GEN-FIRST:event_jButton1ActionPerformed
     	String nombre = txtNombre.getText();
-    	String rut = txtRut.getText();
-    	String password = new String(passwordField.getPassword());
-    	
-    	int edad;
+        String rut = txtRut.getText();
+        char[] password = passwordField.getPassword(); // Obtén la contraseña como arreglo de caracteres
+        int edad;
+
         try {
             edad = Integer.parseInt(txtEdad.getText());
         } catch (NumberFormatException e) {
@@ -154,22 +154,31 @@ public class MenuRegistrarse extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "Edad no válida", "Error", JOptionPane.ERROR_MESSAGE);
             return;
         }
-    	
-    	Cliente cliente = new Cliente(rut,nombre,password,edad);;
-    	gestionCliente.agregarCliente(cliente);
-    	String mensaje = "Cliente agregado:\n" +
+
+        // Validación de la contraseña utilizando la excepción contrasenaInvalida
+        try {
+            validarContraseña(password);
+        } catch (contrasenaInvalida e) {
+            JOptionPane.showMessageDialog(this, e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+
+        Cliente cliente = new Cliente(rut, nombre, new String(password), edad);
+
+        gestionCliente.agregarCliente(cliente);
+        String mensaje = "Cliente agregado:\n" +
                 "Nombre: " + cliente.getNombre() + "\n" +
                 "RUT: " + cliente.getRut() + "\n" +
                 "Edad: " + cliente.getEdad();
-
-        JOptionPane.showMessageDialog(this, mensaje, "Cliente Agregado", JOptionPane.INFORMATION_MESSAGE);  // Muestra si se agrego con exito el cliente.
-        
-        MenuPrincipal menuPrincipal = new MenuPrincipal(cliente, gestionCliente);
-        menuPrincipal.setVisible(true);
-        this.dispose();
-    
+        JOptionPane.showMessageDialog(null, mensaje, "Cliente Agregado", JOptionPane.INFORMATION_MESSAGE);
     }//GEN-LAST:event_jButton1ActionPerformed
-
+    
+    private void validarContraseña(char[] contraseña) throws contrasenaInvalida {
+        if (contraseña.length < 2) {
+            throw new contrasenaInvalida("La contraseña ingresada no es válida: Longitud insuficiente");
+        }
+    }
+    
     /**
      * @param args the command line arguments
      */
