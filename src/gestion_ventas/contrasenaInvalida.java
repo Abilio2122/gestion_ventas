@@ -2,7 +2,7 @@ package gestion_ventas;
 
 public class contrasenaInvalida extends Exception {
 
-	public contrasenaInvalida(String contraseña) {
+    public contrasenaInvalida(String contraseña) {
         super(validarContraseña(contraseña));
     }
 

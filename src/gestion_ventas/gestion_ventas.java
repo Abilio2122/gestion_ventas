@@ -59,7 +59,15 @@ public class gestion_ventas {
                 switch (opc2) {
                     case 1:
                         clienteActual = Cliente.registrar();
-                        gestionCliente.agregarCliente(clienteActual);
+                        Cliente clienteExistente = gestionCliente.buscarClientePorRut(clienteActual.getRut());
+
+                        if (clienteExistente != null) {
+                            clienteActual = clienteExistente;
+                            System.out.println("Has Iniciado sesión, bienvenido.");
+                        } else {
+                            gestionCliente.agregarCliente(clienteActual);
+                            System.out.println("Registrado con éxito.");
+                        }
                         break;
                     case 2:
                         System.out.println("------------------------------");
