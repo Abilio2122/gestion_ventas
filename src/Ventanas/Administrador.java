@@ -3,7 +3,8 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package Ventanas;
-
+import javax.swing.JOptionPane;
+import gestion_ventas.*;
 /**
  *
  * @author sebas
@@ -58,6 +59,11 @@ public class Administrador extends javax.swing.JFrame {
         jLabel7.setText("Rango etario: (1-100)");
 
         jToggleButton1.setText("Confirmar");
+        jToggleButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jToggleButton1ActionPerformed(evt);
+            }
+        });
 
         jTextField1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -150,6 +156,17 @@ public class Administrador extends javax.swing.JFrame {
     private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField2ActionPerformed
+
+    private void jToggleButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton1ActionPerformed
+        JOptionPane.showMessageDialog(this, "Evento agregado exitosamente", "Éxito", JOptionPane.INFORMATION_MESSAGE);
+
+        // Cierra la ventana actual (Administrador)
+        this.dispose();
+
+        // Crea e muestra la ventana MenuPrincipal
+        MenuPrincipal menuPrincipal = new MenuPrincipal();
+        menuPrincipal.setVisible(true);
+    }//GEN-LAST:event_jToggleButton1ActionPerformed
 
     /**
      * @param args the command line arguments
