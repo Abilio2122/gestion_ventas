@@ -24,6 +24,10 @@ public class gestionCliente {
 
     }
     
+    public Cliente buscarClientePorRut(String rut) {
+        return mapaClientesPorRut.get(rut);
+    }
+    
     public void listar() {
     	for(Cliente cliente : listaCliente) {
     		System.out.println(cliente.mostrarPerfil() + "\n\n");  
