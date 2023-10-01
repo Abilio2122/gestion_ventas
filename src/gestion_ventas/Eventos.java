@@ -1,7 +1,5 @@
 package gestion_ventas;
 
-import java.io.IOException;
-
 public class Eventos {
     private String idEvento;
     private String nombreEvento;
@@ -10,9 +8,7 @@ public class Eventos {
     private int cantEntradasEvento;
     private String rangoEtario;
 
-    
-    gestionEntradas gestionEntradas = new gestionEntradas();
-        
+           
     public Eventos(String idEvento, String nombreEvento, String fechaEvento, String regionEvento, int cantEntradasEvento, String rangoEtario) {
         	this.idEvento=idEvento;
         	this.nombreEvento=nombreEvento;
@@ -79,10 +75,6 @@ public class Eventos {
         	return "ID: " + idEvento + "\nNombre: " + nombreEvento + "\nFecha: " + fechaEvento + "\nRegion: " + regionEvento + "\nRango Etario: " + rangoEtario;
                 
         }
-        
-        public void agregarEntrada(Entrada entrada ){
-            gestionEntradas.agregarEntrada(entrada);
-        }        
         
         
         public boolean verificarLimiteEntradaEvento() {
