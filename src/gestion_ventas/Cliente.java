@@ -114,7 +114,13 @@ public class Cliente {
         	return "Nombre: " + nombre + "\nRut: " + rut + "\nEdad: " + edad + "\nHistorial de compras: " + historialCompras;
         }
         
-        
+        class MiGestionCliente extends gestionCliente {
+            @Override
+            public void agregarCliente(Cliente cliente) {
+                System.out.println("Implementación personalizada de agregarCliente en MiGestionCliente");
+                super.agregarCliente(cliente); // Llama al método de la superclase para realizar la funcionalidad original
+            }
+        }
 
         
 }

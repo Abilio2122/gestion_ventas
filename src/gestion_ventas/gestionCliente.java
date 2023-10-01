@@ -23,10 +23,6 @@ public class gestionCliente {
         mapaClientesPorRut.put(cliente.getRut(), cliente);
 
     }
-
-    public Cliente buscarClientePorRut(String rut) {
-        return mapaClientesPorRut.get(rut);
-    }
     
     public void listar() {
     	for(Cliente cliente : listaCliente) {
