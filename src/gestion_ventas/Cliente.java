@@ -8,17 +8,20 @@ import java.util.List;
 
 public class Cliente {
 	
-    private String rut;
+	private String rut;
 	private String nombre;
 	private String password;
 	private int edad;
-	 private List<String> historialCompras = new ArrayList<>();;
+	private List<String> historialCompras;
+    private ArrayList<Eventos> listaEventos;
 
         public Cliente(String rut,String nombre, String password, int edad) {
                 this.rut = rut;
                 this.nombre = nombre;
                 this.password = password;
                 this.edad = edad;
+                historialCompras = new ArrayList<>();
+                listaEventos = new ArrayList<>();
 	}
 	
     public String getRut() {
@@ -41,7 +44,7 @@ public class Cliente {
 	
 	// Setters
 	
-    public void setRut(String rut) {
+        public void setRut(String rut) {
 		this.rut = rut;
 	}
 	
@@ -107,20 +110,28 @@ public class Cliente {
         public void agregarCompra(String nomE) {
             historialCompras.add(nomE);
         }
-
+       
         
         public String mostrarPerfil() {
-            
-        	return "Nombre: " + nombre + "\nRut: " + rut + "\nEdad: " + edad + "\nHistorial de compras: " + historialCompras;
+            return "Nombre: " + nombre + "\nRut: " + rut + "\nEdad: " + edad + "\nHistorial de compras: " + historialCompras + "\n";
         }
         
-        class MiGestionCliente extends gestionCliente {
-            @Override
-            public void agregarCliente(Cliente cliente) {
-                System.out.println("Implementación personalizada de agregarCliente en MiGestionCliente");
-                super.agregarCliente(cliente); // Llama al método de la superclase para realizar la funcionalidad original
+        
+    public void agregarEvento(Eventos evento) {
+        listaEventos.add(evento);
+    }
+    
+    public void mostrarListaEventos() {
+        if (listaEventos.isEmpty()) {
+            System.out.println("La lista de eventos está vacía.");
+        } else {
+            System.out.println("Lista de eventos comprados de" + nombre + ":");
+            for (Eventos evento : listaEventos) {
+                System.out.println(evento.mostrarEventos());
+                System.out.println(); // Salto de línea entre eventos
             }
         }
-
+    }
         
+    
 }

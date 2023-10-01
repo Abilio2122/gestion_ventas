@@ -24,6 +24,15 @@ public class gestionCliente {
 
     }
     
+    																						///Sobreescritura de metodos.
+    public void agregarCliente(String rut, String nombre, String password, int edad) {
+    	Cliente cliente = new Cliente(rut, nombre, password, edad);
+        listaCliente.add(cliente);
+        mapaClientesPorRut.put(cliente.getRut(), cliente);
+
+    }
+    
+    
     public Cliente buscarClientePorRut(String rut) {
         return mapaClientesPorRut.get(rut);
     }

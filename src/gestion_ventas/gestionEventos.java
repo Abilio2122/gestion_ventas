@@ -64,7 +64,8 @@ public class gestionEventos {
     	    System.out.println("Error: " + e.getMessage());
     	}
 
-    }
+    }																						//Sobreescritura de metodos
+    																							
     //agrega evento de forma manual dando valores detalle por detalle
     public void agregarEvento(String idEvento, String nombreEvento, String fechaEvento, String regionEvento, int cantidadEntrada,String rangoEtario) {
         Eventos nuevoEvento = new Eventos(idEvento, nombreEvento, fechaEvento, regionEvento, cantidadEntrada,rangoEtario);

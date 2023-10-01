@@ -28,7 +28,7 @@ public class gestion_ventas {
     	Admin admin = new Admin("2122", "C:\\Users\\sebas\\git\\gestion_ventas\\Eventos.csv"); // Cambia la contraseña y la ruta del archivo CSV según tus necesidades
         gestionEventos gestionEventos = new gestionEventos();
         gestionCliente gestionCliente = new gestionCliente();
-        gestionEventos.importarEventosDesdeCSV("D:\\sebas\\Documentos\\NetBeansProjects\\gestion_ventas\\Eventos.csv");//aqui hay que poner la ruta en la que tengan el archivo csv
+        gestionEventos.importarEventosDesdeCSV("D:\\karth\\Documentos\\NetBeansProjects\\gestion_ventas\\Eventos.csv");//aqui hay que poner la ruta en la que tengan el archivo csv
         gestionPago gestionPago = new gestionPago();
         Recomendacion recomendador = new Recomendacion();
         
@@ -103,6 +103,7 @@ public class gestion_ventas {
 
                     case 1:
                         verPerfil(clienteActual);
+                        clienteActual.mostrarListaEventos();
                         break;
 
                     case 2:
@@ -129,8 +130,7 @@ public class gestion_ventas {
                                 int opc3 = Integer.parseInt(lector.readLine());             ///Efectua el pago
                                 switch (opc3) {
                                     case 1:
-                                        System.out.println("Ingrese su Rut:");
-                                        String idPago = lector.readLine();
+                                        String idPago = clienteActual.getRut();
 
                                         gestionPago.efectuarPago(idPago);
 
@@ -142,8 +142,9 @@ public class gestion_ventas {
                                         System.out.println("");
 
                                         //almaceno al cliente su evento en historial compra
-                                        Cliente cliente = (Cliente) gestionCliente.buscarClientePorRut(idPago);
-                                        cliente.agregarCompra(encontrado.getNombreEvento());
+                                        
+                                        clienteActual.agregarCompra(encontrado.getNombreEvento());
+                                        clienteActual.agregarEvento(encontrado);
                                         break;
 
                                     case 2:
