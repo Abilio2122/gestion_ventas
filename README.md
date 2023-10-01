@@ -25,5 +25,7 @@ Instrucciones para ventanas:
 
 El package Ventanas es donde se guardan todas las ventanas.
 
-La ventana inicial para empezar sería la de MenuInicio, desde ahi se ejecutará correctamente el código.
+La ventana inicial para empezar sería la de MenuInicio, desde ahi se ejecutará correctamente el código, preferiblemetne click derecho sobre el archivo y luego a Run File.
 Se es libre de ejecutar cualquier otra ventana pero no se asegurará la importación de datos correcta.
+
+Datos a condiderar, hay venatnas que no funcionan al 100%, pero al ejecutar por cosola veran de que le codigo si funciana.
