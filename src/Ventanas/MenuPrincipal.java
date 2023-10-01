@@ -8,7 +8,7 @@ import java.awt.event.ActionListener;
 import gestion_ventas.Cliente;
 import gestion_ventas.gestionCliente;
 
-public class MenuPrincipal extends JFrame {
+public class MenuPrincipal extends javax.swing.JFrame {
 
     private static final long serialVersionUID = 1L;
     private JPanel contentPane;

@@ -13,7 +13,7 @@ import javax.swing.JButton;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class VerCsv extends JFrame {
+public class VerCsv extends javax.swing.JFrame {
 
     private static final long serialVersionUID = 1L;
     private JPanel contentPane;
@@ -46,35 +46,35 @@ public class VerCsv extends JFrame {
         contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
         setContentPane(contentPane);
         contentPane.setLayout(null); // 
-
+        
         
         String[] columnNames = {"ID", "Nombre", "Fecha", "Región", "Entradas Disponibles", "Rango Etario"};
-
-      
+        
+        
         Object[][] data = new Object[20][6];
-
+        
        
         DefaultTableModel model = new DefaultTableModel(data, columnNames);
         table = new JTable(model);
         JScrollPane scrollPane = new JScrollPane(table);
         scrollPane.setBounds(10, 10, 760, 340); 
         contentPane.add(scrollPane);
-
+        
         
         JLabel lblMensaje = new JLabel("Ingrese la ID del evento al que desea asistir:");
         lblMensaje.setBounds(10, 360, 300, 20);
         contentPane.add(lblMensaje);
-
+        
         
         textField = new JTextField();
         textField.setBounds(243, 360, 100, 20);
         contentPane.add(textField);
-
+        
         
         JButton btnConfirmar = new JButton("Confirmar");
         btnConfirmar.setBounds(353, 361, 100, 20);
         contentPane.add(btnConfirmar);
-
+        
         
         btnConfirmar.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
@@ -83,16 +83,15 @@ public class VerCsv extends JFrame {
                 
             }
         });
-
+        
        
         JButton btnVolver = new JButton("Volver");
         btnVolver.setBounds(530, 360, 100, 20);
         contentPane.add(btnVolver);
-
+        
         
         btnVolver.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                
                 dispose();
             }
         });

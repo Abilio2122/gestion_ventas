@@ -56,7 +56,7 @@ public class gestionEventos {
     	    if (!mapEventos.containsKey(evento.getIdEvento())) {
     	        listaEventos.add(evento);
     	        mapEventos.put(evento.getIdEvento(), evento);
-    	        System.out.println("Evento agregado correctamente.");
+    	        //System.out.println("Evento agregado correctamente.");
     	    } else {
     	        throw new excepcionPersonalizada("Ya existe este evento o la ID fue mal ingresada.");
     	    }
